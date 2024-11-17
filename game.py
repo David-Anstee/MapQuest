@@ -3,6 +3,7 @@ David Anstee
 A01434810
 """
 import random
+import ui
 
 
 def make_board(rows: int, columns: int) -> dict:
@@ -51,8 +52,11 @@ def game():
     board = make_board(5, 5)
     character = make_character()
 
-    while True:
-        pass
+    user_input = input("Enter anything to begin")
+    while user_input != 'q':
+        ui.display_map(board, character)
+        ui.describe_location(board, character)
+        user_input = input("\nEnter q to quit")
 
 
 def main():

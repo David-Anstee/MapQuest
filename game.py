@@ -4,6 +4,7 @@ A01434810
 """
 import random
 import ui
+import player_input
 
 
 def make_board(rows: int, columns: int) -> dict:
@@ -53,10 +54,10 @@ def game():
     character = make_character()
 
     user_input = input("Enter anything to begin")
-    while user_input != 'q':
+    while True:
         ui.display_map(board, character)
         ui.describe_location(board, character)
-        user_input = input("\nEnter q to quit")
+        player_input.get_user_input(board, character)
 
 
 def main():

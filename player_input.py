@@ -138,3 +138,16 @@ def get_user_input(board: dict, character: dict):
             print("\nYour \033[0;34mcurrent HP\033[0m is:\033[0;34m", character["hp"], "\033[0m")
         else:
             print("\n\033[0;31mInvalid input!\033[0m")
+
+
+def main():
+    """
+    Drive the program.
+    """
+    board = {(0, 0): "a peaceful meadow", (0, 1): "the side of a lake"}
+    character = {"x_coord": 0, "y_coord": 0, "visited_rooms": [(0, 0)]}
+    get_user_input(board, character)
+
+
+if __name__ == "__main__":
+    main()

@@ -56,7 +56,7 @@ def display_map(board: dict, character: dict):
             assert coordinates in board
 
             if coordinates == (character["x_coord"], character["y_coord"]):
-                map_row += "\033[1;35m*"
+                map_row += "\033[1;35m☺"
             elif coordinates in character["visited_rooms"]:
                 map_row += get_colour(board, coordinates) + get_tile(board[coordinates])
             else:

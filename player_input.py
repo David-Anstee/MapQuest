@@ -126,18 +126,11 @@ def get_user_input(board: dict, character: dict):
     :postcondition: handle the user's input
     """
     while True:
-        user_input = input("Waiting for input:")
-        if is_directional(user_input):
-            direction = direction_from_input(user_input)
-            if move_is_valid(board, character, direction):
-                move_character(board, character, direction)
-                break
-            else:
-                print("\n\033[0;31mCannot move in that direction!\033[0m")
-        elif user_input in ["hp", "health"]:
-            print("\nYour \033[0;34mcurrent HP\033[0m is:\033[0;34m", character["hp"], "\033[0m")
+        user_input = input("Enter a direction to move ('n', 's', 'e', 'w'): ")
+        if not is_directional(user_input):
+            print("\nInvalid input!")
         else:
-            print("\n\033[0;31mInvalid input!\033[0m")
+            return direction_from_input(user_input)
 
 
 def main():

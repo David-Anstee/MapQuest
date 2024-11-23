@@ -3,6 +3,8 @@ David Anstee
 A01434810
 """
 import random
+
+import encounter
 import ui
 import player_input
 
@@ -53,11 +55,19 @@ def game():
     board = make_board(5, 5)
     character = make_character()
 
-    user_input = input("Enter anything to begin")
+    input("Enter anything to begin")
     while True:
         ui.display_map(board, character)
         ui.describe_location(board, character)
-        player_input.get_user_input(board, character)
+
+        movement = player_input.get_user_input(board, character)
+        if not player_input.move_is_valid(board, character, movement):
+            print("\nCannot move in that direction!")
+            continue
+
+        player_input.move_character(board, character, movement)
+        if encounter.roll_for_encounter():
+            pass
 
 
 def main():

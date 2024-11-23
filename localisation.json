@@ -1,5 +1,12 @@
 {
+  "error": {
+    "invalid_input": "Invalid input!",
+    "bad_move": "Cannot move in that direction!"
+  },
+  "prompt": {
+    "move": "Enter a direction to move ('n', 's', 'e', 'w'): "
+  },
   "intro": {
-    "0000": "Press enter to begin..."
+    "0000": "Press enter to begin... "
   }
 }

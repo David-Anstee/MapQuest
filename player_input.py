@@ -2,6 +2,7 @@
 David Anstee
 A01434810
 """
+from localisation import get_text
 
 
 def move_is_valid(board: dict, character: dict, direction: list) -> bool:
@@ -126,9 +127,9 @@ def get_user_input(board: dict, character: dict):
     :postcondition: handle the user's input
     """
     while True:
-        user_input = input("Enter a direction to move ('n', 's', 'e', 'w'): ")
+        user_input = input(get_text("prompt", "move", True))
         if not is_directional(user_input):
-            print("\nInvalid input!")
+            print(get_text("error", "invalid_input"))
         else:
             return direction_from_input(user_input)
 

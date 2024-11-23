@@ -4,12 +4,11 @@ A01434810
 """
 
 
-def get_colour(board: dict, coordinates: tuple) -> str:
+def get_colour(tile_name: str) -> str:
     """
     Get the colour of a map tile.
 
-    :param board: the game board the tile exists on
-    :param coordinates: the coordinates of the tile
+    :param tile_name: the game board the tile exists on
     :precondition: board is a dictionary where coordinates
                    are mapped to tile descriptions
     :precondition: coordinates is a tuple containing
@@ -22,11 +21,12 @@ def get_colour(board: dict, coordinates: tuple) -> str:
     >>> colour == '\033[0;34m'
     True
     """
-    tile_description = board[coordinates]
-    colours = {"a peaceful meadow": "\033[1;32m", "a forest": "\033[0;32m", "a mountain": "\033[1;37m",
-               "a plain": "\033[1;33m", "the side of a lake": "\033[0;34m"}
-
-    return colours[tile_description]
+    colours = {"meadow": "\033[1;92m", "forest": "\033[38;5;22m", "mountain": "\033[1;90m",
+               "swamp": "\033[38;5;65m"}
+    try:
+        return colours[tile_name]
+    except KeyError:
+        return ""
 
 
 def display_map(board: dict, character: dict):
@@ -58,7 +58,7 @@ def display_map(board: dict, character: dict):
             if coordinates == (character["x_coord"], character["y_coord"]):
                 map_row += "\033[1;35m☺"
             elif coordinates in character["visited_rooms"]:
-                map_row += get_colour(board, coordinates) + get_tile(board[coordinates])
+                map_row += get_colour(board[coordinates]) + get_tile(board[coordinates])
             else:
                 map_row += "?"
             map_row += "\033[0m "
@@ -101,18 +101,11 @@ def get_tile(tile_description: str) -> str:
     >>> get_tile("a forest")
     '♣'
     """
-    if tile_description == "the side of a lake":
-        return '≈'
-    elif tile_description == "a forest":
-        return '♣'
-    elif tile_description == "a mountain":
-        return '▲'
-    elif tile_description == "a peaceful meadow":
-        return ';'
-    elif tile_description == "a plain":
-        return 'l'
-    else:
-        return 'x'
+    tile_icons = {"meadow": ";", "forest": "♣", "swamp": "\"", "mountain": "▲"}
+    try:
+        return tile_icons[tile_description]
+    except KeyError:
+        return "x"
 
 
 def main():

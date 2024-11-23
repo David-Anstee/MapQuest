@@ -29,7 +29,7 @@ def make_board(rows: int, columns: int) -> dict:
     (2, 2): 'a mountain'}
     """
     new_board = {}
-    tiles = ['a peaceful meadow', 'a forest', 'a mountain', 'a plain', 'the side of a lake']
+    tiles = ["meadow", "forest", "swamp", "mountain"]
     for row in range(rows):
         for column in range(columns):
             new_board[(row, column)] = random.choice(tiles)

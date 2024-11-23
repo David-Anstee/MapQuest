@@ -14,5 +14,8 @@
     "forest": "a dense forest",
     "swamp": "a lush swamp",
     "mountain": "a treacherous mountain"
+  },
+  "encounter": {
+    "start": "As you travel, you encounter a foe!"
   }
 }

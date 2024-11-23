@@ -68,7 +68,7 @@ def game():
 
         player_input.move_character(board, character, movement)
         if encounter.roll_for_encounter():
-            pass
+            encounter.start_encounter(board, character)
 
 
 def main():

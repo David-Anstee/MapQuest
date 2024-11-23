@@ -8,5 +8,11 @@
   },
   "intro": {
     "0000": "Press enter to begin... "
+  },
+  "location": {
+    "meadow": "a peaceful meadow",
+    "forest": "a dense forest",
+    "swamp": "a lush swamp",
+    "mountain": "a treacherous mountain"
   }
 }

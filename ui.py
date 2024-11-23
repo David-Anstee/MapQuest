@@ -2,6 +2,7 @@
 David Anstee
 A01434810
 """
+from localisation import get_text
 
 
 def get_colour(tile_name: str) -> str:
@@ -83,8 +84,8 @@ def describe_location(board: dict, character: dict):
     >>> describe_location(example_board, example_character)
     You arrive at a peaceful meadow
     """
-    room_description = board[character["x_coord"], character["y_coord"]]
-    print("You arrive at", room_description)
+    tile_name = board[character["x_coord"], character["y_coord"]]
+    print("You travel to", get_text("location", tile_name))
 
 
 def get_tile(tile_description: str) -> str:

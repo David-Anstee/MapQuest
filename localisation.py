@@ -7,11 +7,12 @@ import json
 LOCALISATION_FILE = "localisation.json"
 
 
-def get_text(namespace: str, loc_id: str) -> str:
+def get_text(namespace: str, loc_id: str, new_line: bool = False) -> str:
     try:
         with open(LOCALISATION_FILE, 'r') as text_file:
             localisation = json.load(text_file)
-            return localisation[namespace][loc_id]
+            output = "\n" + localisation[namespace][loc_id] if new_line else localisation[namespace][loc_id]
+            return output
     except FileNotFoundError:
         return "MISSING LOCALISATION FILE"
     except KeyError:
@@ -19,7 +20,7 @@ def get_text(namespace: str, loc_id: str) -> str:
 
 
 def main():
-    example_text = get_text("intro", "0000")
+    example_text = get_text("intro", "0000", True)
     print(example_text)
 
 

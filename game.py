@@ -57,7 +57,7 @@ def game():
     character = make_character()
 
     input(get_text("intro", "0000"))
-    while True:
+    while character["hp"] > 0:
         ui.display_map(board, character)
         ui.describe_location(board, character)
 

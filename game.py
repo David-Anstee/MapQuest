@@ -46,9 +46,26 @@ def make_character() -> dict:
                     various values
     :return: the player character as a dictionary
     """
-    character = {"x_coord": 0, "y_coord": 0, "hp": 5, "level": 1, "visited_rooms": [(0, 0)], "insight": 0, "might": 0,
-                 "cunning": 0}
+    character = {"x_coord": 0, "y_coord": 0, "hp": 5, "level": 1, "visited_rooms": [(0, 0)],
+                 "insight": 0, "might": 0, "cunning": 0}
     return character
+
+
+def level_up_character(game_state: dict):
+    character = game_state["character"]
+    character["level"] += 1
+    stat_progression = [0, 1, 2, 3, 5, 8, 13]
+    new_stats = {"insight": 0, "might": 0, "cunning": 0}
+    for num in enumerate(stat_progression):
+        if character["insight"] == num[1] and num[1] < len(stat_progression):
+            new_stats["insight"] = stat_progression[num[0]+1]
+        if character["might"] == num[1] and num[1] < len(stat_progression):
+            new_stats["might"] = stat_progression[num[0]+1]
+        if character["cunning"] == num[1] and num[0] < len(stat_progression):
+            new_stats["cunning"] = stat_progression[num[0]+1]
+    character["insight"] = new_stats["insight"]
+    character["might"] = new_stats["might"]
+    character["cunning"] = new_stats["cunning"]
 
 
 def game():
@@ -61,7 +78,7 @@ def game():
     input(get_text("intro", "0000"))
 
     while not should_quit:
-        tile.run_tile(game_state)
+        input("type enter")
 
 
 def main():

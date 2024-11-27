@@ -53,22 +53,21 @@ def game():
     """
     Drive the game.
     """
-    board = make_board(5, 5)
-    character = make_character()
+    game_state = {"board": make_board(5, 5), "character": make_character()}
 
     input(get_text("intro", "0000"))
-    while character["hp"] > 0:
-        ui.display_map(board, character)
-        ui.describe_location(board, character)
+    while game_state["character"]["hp"] > 0:
+        ui.display_map(game_state)
+        ui.describe_location(game_state)
 
-        movement = player_input.get_user_input(board, character)
-        if not player_input.move_is_valid(board, character, movement):
+        movement = player_input.get_user_input(game_state)
+        if not player_input.move_is_valid(game_state, movement):
             print(get_text("error", "bad_move", True))
             continue
 
-        player_input.move_character(board, character, movement)
+        player_input.move_character(game_state, movement)
         if encounter.roll_for_encounter():
-            encounter.start_encounter(board, character)
+            encounter.start_encounter(game_state)
 
 
 def main():

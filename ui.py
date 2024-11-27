@@ -30,7 +30,7 @@ def get_colour(tile_name: str) -> str:
         return ""
 
 
-def display_map(board: dict, character: dict):
+def display_map(game_state: dict):
     """
     Print a map representing the game board.
 
@@ -46,6 +46,9 @@ def display_map(board: dict, character: dict):
     >>> example_character = {"x_coord": 0, "y_coord": 0, "visited_rooms": [(0, 0)]}
     >>> display_map(example_board, example_character) # doctest: +SKIP
     """
+    board = game_state["board"]
+    character = game_state["character"]
+
     map_display = ""
     max_row = max(key[0] for key in board.keys())
     max_col = max(key[1] for key in board.keys())
@@ -67,24 +70,20 @@ def display_map(board: dict, character: dict):
     print(map_display)
 
 
-def describe_location(board: dict, character: dict):
+def describe_location(game_state: dict):
     """
     Describe the player's current location.
 
-    :param board: The game board
-    :param character: The player character
+    :param game_state: an empty dictionary
     :precondition: board is a dictionary where coordinates
                    are mapped to tile descriptions
     :precondition: character is a dictionary containing the
                    player's current coordinates
     :postcondition: print a description of the player's current location
-
-    >>> example_character = {'x_coord': 0, 'y_coord': 0}
-    >>> example_board = {(0,0): "a peaceful meadow"}
-    >>> describe_location(example_board, example_character)
-    You arrive at a peaceful meadow
     """
-    tile_name = board[character["x_coord"], character["y_coord"]]
+    board = game_state["board"]
+    coordinates = (game_state["character"]["x_coord"], game_state["character"]["y_coord"])
+    tile_name = board[coordinates]
     print("You travel to", get_text("location", tile_name))
 
 

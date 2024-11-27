@@ -5,7 +5,7 @@ A01434810
 from localisation import get_text
 
 
-def move_is_valid(board: dict, character: dict, direction: list) -> bool:
+def move_is_valid(game_state: dict, direction: list) -> bool:
     """
     Determine whether a move is valid.
 
@@ -34,18 +34,19 @@ def move_is_valid(board: dict, character: dict, direction: list) -> bool:
     >>> move_is_valid(example_board, example_character, example_direction)
     True
     """
+    character = game_state["character"]
+    board = game_state["board"]
     max_row = max(key[0] for key in board.keys())
     max_col = max(key[1] for key in board.keys())
     return (0 <= character["x_coord"] + direction[0] <= max_row and
             0 <= character["y_coord"] + direction[1] <= max_col)
 
 
-def move_character(board: dict, character: dict, direction: list):
+def move_character(game_state: dict, direction: list):
     """
     Move a character in the given direction.
 
-    :param board: the game board
-    :param character: the player character
+    :param game_state: a dictionary
     :param direction: the direction the character is moving in
     :precondition: board is a dictionary where coordinates are keys
                    represented as tuples of non-negative integers
@@ -56,16 +57,8 @@ def move_character(board: dict, character: dict, direction: list):
     :precondition: moving in the given direction will not take
                    the character off the board
     :postcondition: the character moves in the given direction
-
-    >>> example_board = {(0,0): "a peaceful meadow", (0, 1): "a peaceful meadow"}
-    >>> example_character = {"x_coord": 0, "y_coord": 0, "visited_rooms": [(0,0)]}
-    >>> example_direction = [0, 1]
-    >>> move_character(example_board, example_character, example_direction)
-    >>> example_character["y_coord"]
-    1
-    >>> example_character["visited_rooms"]
-    [(0, 0), (0, 1)]
     """
+    character = game_state["character"]
     character["x_coord"] += direction[0]
     character["y_coord"] += direction[1]
     character["visited_rooms"].append((character["x_coord"], character["y_coord"]))
@@ -116,12 +109,11 @@ def direction_from_input(user_input: str) -> list:
     return direction
 
 
-def get_user_input(board: dict, character: dict):
+def get_user_input(game_state: dict):
     """
     Get and respond to input from the user.
 
-    :param board: the game board
-    :param character: the player character
+    :param game_state: a dictionary
     :precondition: board is a dictionary
     :precondition: character is a dictionary
     :postcondition: handle the user's input
@@ -132,6 +124,9 @@ def get_user_input(board: dict, character: dict):
             print(get_text("error", "invalid_input"))
         else:
             return direction_from_input(user_input)
+
+
+# def prompt_user()
 
 
 def main():

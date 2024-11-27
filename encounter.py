@@ -11,7 +11,7 @@ def roll_for_encounter(encounter_rate: int = 20) -> bool:
     return encounter_roll < encounter_rate
 
 
-def generate_encounter(board: dict, character: dict):
+def generate_encounter(game_state: dict):
     def guessing_game():
         random_number = random.randint(1, 5)
         print("Your foe challenges you to a guessing game!")
@@ -28,14 +28,14 @@ def generate_encounter(board: dict, character: dict):
     return guessing_game
 
 
-def start_encounter(board: dict, character: dict):
+def start_encounter(game_state: dict):
     print(get_text("encounter", "start", True))
-    encounter = generate_encounter(board, character)
+    encounter = generate_encounter(game_state)
     encounter()
 
 
 def main():
-    start_encounter({}, {})
+    start_encounter({})
 
 
 if __name__ == "__main__":

@@ -3,6 +3,7 @@ David Anstee
 A01434810
 """
 import random
+import time
 
 import encounter
 from localisation import get_text
@@ -99,14 +100,46 @@ def level_up_character(game_state: dict):
     character["cunning"] = new_stats["cunning"]
 
 
+def skill_check(game_state: dict, target: int, stat=None, drama=True) -> int:
+    character = game_state["character"]
+    modifier = 0 if (stat is None) else character[stat]
+    print("Rolling dice...")
+    if drama:
+        time.sleep(1)
+    first_roll = random.randint(1, 6)
+    print(first_roll)
+
+    if drama:
+        time.sleep(2)
+    second_roll = random.randint(1, 6)
+    print(second_roll)
+    if drama:
+        time.sleep(1.5)
+    print(f"Rolled {first_roll} + {second_roll} = {first_roll+second_roll}.")
+    total_roll = first_roll + second_roll + modifier
+
+    if modifier != 0:
+        if drama:
+            time.sleep(1.5)
+        print(f"Modifier ({stat.title()}): {modifier}")
+    if drama:
+        time.sleep(1.5)
+    print(f"Total roll: {total_roll}")
+
+    if total_roll >= target:
+        return 2 + (total_roll >= target+6)
+    else:
+        return 1 - (total_roll <= target-6)
+
+
 def game():
     """
     Drive the game.
     """
+    input(get_text("intro", "0000"))
+
     game_state = {"board": make_board(5, 5), "character": make_character()}
     should_quit = False
-
-    input(get_text("intro", "0000"))
 
     while not should_quit:
         input("type enter")

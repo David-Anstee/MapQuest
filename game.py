@@ -8,6 +8,7 @@ import encounter
 from localisation import get_text
 import ui
 import player_input
+import tile
 
 
 def make_board(rows: int, columns: int) -> dict:
@@ -55,20 +56,12 @@ def game():
     Drive the game.
     """
     game_state = {"board": make_board(5, 5), "character": make_character()}
+    should_quit = False
 
     input(get_text("intro", "0000"))
-    while game_state["character"]["hp"] > 0:
-        ui.display_map(game_state)
-        ui.describe_location(game_state)
 
-        movement = player_input.get_user_input(game_state)
-        if not player_input.move_is_valid(game_state, movement):
-            print(get_text("error", "bad_move", True))
-            continue
-
-        player_input.move_character(game_state, movement)
-        if encounter.roll_for_encounter():
-            encounter.start_encounter(game_state)
+    while not should_quit:
+        tile.run_tile(game_state)
 
 
 def main():

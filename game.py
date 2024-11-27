@@ -45,7 +45,8 @@ def make_character() -> dict:
                     various values
     :return: the player character as a dictionary
     """
-    character = {"x_coord": 0, "y_coord": 0, "hp": 5, "level": 1, "visited_rooms": [(0, 0)]}
+    character = {"x_coord": 0, "y_coord": 0, "hp": 5, "level": 1, "visited_rooms": [(0, 0)], "insight": 0, "might": 0,
+                 "cunning": 0}
     return character
 
 

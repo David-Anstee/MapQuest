@@ -59,9 +59,9 @@ def move_character(game_state: dict, direction: list):
     :postcondition: the character moves in the given direction
     """
     character = game_state["character"]
+    character["visited_rooms"].append((character["x_coord"], character["y_coord"]))
     character["x_coord"] += direction[0]
     character["y_coord"] += direction[1]
-    character["visited_rooms"].append((character["x_coord"], character["y_coord"]))
 
 
 def is_directional(user_input: str) -> bool:

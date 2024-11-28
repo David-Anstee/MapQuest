@@ -1,0 +1,18 @@
+{
+  "tiles": {
+    "early": {
+      "00": {"terrain": "meadow"},
+      "01": {"terrain": "meadow"},
+      "02": {"terrain": "meadow"},
+      "03": {"terrain": "meadow"},
+      "04": {"terrain": "meadow"},
+      "05": {"terrain": "meadow"}
+    },
+    "mid": {
+
+    },
+    "late": {
+
+    }
+  }
+}

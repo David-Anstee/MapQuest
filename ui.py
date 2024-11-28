@@ -5,7 +5,7 @@ A01434810
 from localisation import get_text
 
 
-def get_colour(tile_name: str) -> str:
+def get_colour(terrain: str) -> str:
     """
     Get the colour of a map tile.
 
@@ -22,10 +22,11 @@ def get_colour(tile_name: str) -> str:
     >>> colour == '\033[0;34m'
     True
     """
+    print(terrain)
     colours = {"meadow": "\033[1;92m", "forest": "\033[38;5;22m", "mountain": "\033[1;90m",
                "swamp": "\033[38;5;65m"}
     try:
-        return colours[tile_name]
+        return colours[terrain]
     except KeyError:
         return ""
 
@@ -62,7 +63,7 @@ def display_map(game_state: dict):
             if coordinates == (character["x_coord"], character["y_coord"]):
                 map_row += "\033[1;35m☺"
             elif coordinates in character["visited_rooms"]:
-                map_row += get_colour(board[coordinates]) + get_tile(board[coordinates])
+                map_row += get_colour(board[coordinates]["terrain"]) + get_tile(board[coordinates]["terrain"])
             else:
                 map_row += "?"
             map_row += "\033[0m "
@@ -84,7 +85,7 @@ def describe_location(game_state: dict):
     board = game_state["board"]
     coordinates = (game_state["character"]["x_coord"], game_state["character"]["y_coord"])
     tile_name = board[coordinates]
-    print("You travel to", get_text("location", tile_name))
+    print("You travel through the", get_text("location", tile_name))
 
 
 def get_tile(tile_description: str) -> str:

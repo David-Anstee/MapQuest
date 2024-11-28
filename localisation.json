@@ -15,7 +15,22 @@
     "swamp": "a lush swamp",
     "mountain": "a treacherous mountain"
   },
+  "location_descriptions": {
+    "00": "A plain of grass stretches out around you. Flowers sway gently in the breeze. You detect no sign of civilisation.",
+    "01": "The grass comes up to your knees. A long trail of trampled vegetation stretches behind you.",
+    "02": "Gentle hills rise and fall here. Standing at the crest of one, you survey your surroundings. More grass. More hills. Nothing else.",
+    "03": "In a field of grass, you find a lone pond. The water is clear; you can see all the way to the bottom. Nothing stirs beneath the surface.",
+    "04": "meadow text",
+    "05": "meadow text 2"
+  },
   "encounter": {
     "start": "As you travel, you encounter a foe!"
+  },
+  "hp": {
+    "1": "near death",
+    "2": "very weak",
+    "3": "wounded",
+    "4": "exhausted",
+    "5": "healthy"
   }
 }

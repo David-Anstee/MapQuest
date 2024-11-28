@@ -5,6 +5,7 @@ A01434810
 import random
 import time
 
+import data
 import encounter
 from localisation import get_text
 import ui
@@ -31,10 +32,10 @@ def make_board(rows: int, columns: int) -> dict:
     (2, 2): 'a mountain'}
     """
     new_board = {}
-    tiles = ["meadow", "forest", "swamp", "mountain"]
+    available_tiles = data.get_data(["tiles"])
     for row in range(rows):
         for column in range(columns):
-            new_board[(row, column)] = random.choice(tiles)
+            new_board[(row, column)] = tile.make_tile(new_board, (row, column), available_tiles)
     return new_board
 
 

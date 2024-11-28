@@ -19,6 +19,10 @@ def get_text(namespace: str, loc_id: str, new_line: bool = False) -> str:
         return "LOCALISATION NOT FOUND"
 
 
+def generate_location_description(game_state):
+    pass
+
+
 def main():
     example_text = get_text("intro", "0000", True)
     print(example_text)

@@ -49,7 +49,7 @@ def make_character() -> dict:
     """
     character = {"x_coord": 0, "y_coord": 0, "hp": 5, "level": 1, "visited_rooms": [(0, 0)],
                  "insight": 0, "might": 0, "cunning": 0}
-    primary_prompt = (f"Pick your primary stat:"
+    primary_prompt = (f"\nPick your primary stat:"
                       f"\n1. Insight - your intelligence and ability to notice things"
                       f"\n2. Might - your physical strength, and endurance"
                       f"\n3. Cunning - your deceptiveness and stealth")
@@ -58,14 +58,16 @@ def make_character() -> dict:
                         f"\n2. Might - your physical strength, and endurance"
                         f"\n3. Cunning - your deceptiveness and stealth")
     primary_stat = input(primary_prompt)
-    while not primary_stat.isnumeric() or not (0 < int(primary_stat) < 4):
+    valid_inputs = {1, 2, 3}
+    while not primary_stat.isnumeric() or not (int(primary_stat) in valid_inputs):
         print("\nInvalid input. Please enter a number from 1-3.")
         primary_stat = input(primary_prompt)
     primary_stat = int(primary_stat)
+    valid_inputs.remove(primary_stat)
 
     secondary_stat = input(secondary_prompt)
 
-    while not secondary_stat.isnumeric() or not (0 < int(secondary_stat) < 4):
+    while not secondary_stat.isnumeric() or not (int(secondary_stat) in valid_inputs):
         print("\nInvalid input. Please enter a number from 1-3.")
         secondary_stat = input(secondary_prompt)
     secondary_stat = int(secondary_stat)
@@ -75,10 +77,11 @@ def make_character() -> dict:
     secondary_stat = number_to_stat[secondary_stat]
     character[primary_stat] = 2
     character[secondary_stat] = 1
-    print(f"Your stats are:"
-          f"\nInsight: {character["insight"]}"
-          f"\nMight: {character["might"]}"
-          f"\nCunning: {character["cunning"]}")
+    print(f"\nYour stats bonuses are:"
+          f"\nInsight: +{character["insight"]}"
+          f"\nMight: +{character["might"]}"
+          f"\nCunning: +{character["cunning"]}")
+    input(f"\nPress enter to continue...")
 
     return character
 
@@ -142,7 +145,7 @@ def game():
     should_quit = False
 
     while not should_quit:
-        input("type enter")
+        tile.run_tile(game_state)
 
 
 def main():

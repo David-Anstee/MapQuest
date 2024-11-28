@@ -142,7 +142,7 @@ def game():
     """
     input(get_text("intro", "0000"))
 
-    game_state = {"board": make_board(5, 5), "character": make_character()}
+    game_state = {"board": make_board(5, 6), "character": make_character()}
     should_quit = False
 
     while not should_quit:

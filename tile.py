@@ -8,15 +8,39 @@ from ui import describe_location
 
 def make_tile(board: dict, coordinates: tuple, unused_tiles: dict) -> dict:
     new_tile = {}
+    tile_type = ""
+    tile_id = None
     if coordinates[0] + coordinates[1] < 3:
-        tile_id = random.choice(list(unused_tiles["early"]))
-        tile_data = unused_tiles["early"][tile_id]
-
-        unused_tiles["early"].pop(tile_id)
-        new_tile = tile_data
-        new_tile["id"] = tile_id
+        tile_type = "meadow"
+    elif coordinates == (0, 5):
+        tile_type = "special"
+        tile_id = "97"
+    elif coordinates in [(0, 3), (1, 3)]:
+        tile_type = "tundra"
+    elif (coordinates[1] == 4 and coordinates[0] < 3) or coordinates == (1, 5):
+        tile_type = "valley"
+    elif (coordinates[0] + coordinates[1] < 5) or (coordinates[0] == 1) and (coordinates != (4, 0)):
+        tile_type = "forest"
+    elif 4 < (coordinates[0] + coordinates[1]) < 7 and (1 < coordinates[0] and 1 < coordinates[1] < 4):
+        tile_type = "swamp"
+    elif 6 < (coordinates[0] + coordinates[1]) < 9:
+        tile_type = "mountain"
+    elif coordinates == (4, 5):
+        tile_type = "special"
+        tile_id = "99"
     else:
-        new_tile = None
+        tile_type = "special"
+        tile_id = "98"
+
+    if tile_id is None:
+        tile_id = random.choice(list(unused_tiles[tile_type]))
+
+    print(coordinates, tile_type, tile_id)
+    tile_data = unused_tiles[tile_type][tile_id]
+    unused_tiles[tile_type].pop(tile_id)
+    new_tile = tile_data
+    new_tile["id"] = tile_id
+
     return new_tile
 
 

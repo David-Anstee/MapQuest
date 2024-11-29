@@ -22,7 +22,6 @@ def get_colour(terrain: str) -> str:
     >>> colour == '\033[0;34m'
     True
     """
-    print(terrain)
     colours = {"meadow": "\033[1;92m", "forest": "\033[38;5;22m", "mountain": "\033[1;90m",
                "swamp": "\033[38;5;65m"}
     try:
@@ -62,7 +61,7 @@ def display_map(game_state: dict):
 
             if coordinates == (character["x_coord"], character["y_coord"]):
                 map_row += "\033[1;35m☺"
-            elif coordinates in character["visited_rooms"]:
+            elif True: # coordinates in character["visited_rooms"]:
                 map_row += get_colour(board[coordinates]["terrain"]) + get_tile(board[coordinates]["terrain"])
             else:
                 map_row += "?"

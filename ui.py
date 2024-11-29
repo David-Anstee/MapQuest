@@ -102,7 +102,8 @@ def get_tile(tile_description: str) -> str:
     >>> get_tile("a forest")
     '♣'
     """
-    tile_icons = {"meadow": ";", "forest": "♣", "swamp": "\"", "mountain": "▲"}
+    tile_icons = {"meadow": ";", "forest": "♣", "swamp": "\"", "mountain": "▲", "caverns": "○", "end": "!", "pale": "?",
+                  "valley": "U", "tundra": "⎵"}
     try:
         return tile_icons[tile_description]
     except KeyError:

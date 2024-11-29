@@ -32,10 +32,10 @@ def make_board(rows: int, columns: int) -> dict:
     (2, 2): 'a mountain'}
     """
     new_board = {}
-    available_tiles = data.get_data(["tiles"])
+    map_data = data.get_data(["map_data"])
     for row in range(rows):
         for column in range(columns):
-            new_board[(row, column)] = tile.make_tile(new_board, (row, column), available_tiles)
+            new_board[(row, column)] = tile.make_tile(new_board, (row, column), map_data)
     return new_board
 
 

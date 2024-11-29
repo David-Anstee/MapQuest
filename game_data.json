@@ -1,48 +1,156 @@
 {
-  "tiles": {
-    "meadow": {
-      "00": {"terrain": "meadow"},
-      "01": {"terrain": "meadow"},
-      "02": {"terrain": "meadow"},
-      "03": {"terrain": "meadow"},
-      "04": {"terrain": "meadow"},
-      "05": {"terrain": "meadow"}
+  "map_data" : {
+    "regions": {
+      "0": {
+        "0": [
+          "meadow"
+        ],
+        "1": [
+          "meadow"
+        ],
+        "2": [
+          "meadow"
+        ],
+        "3": [
+          "tundra"
+        ],
+        "4": [
+          "valley"
+        ],
+        "5": [
+          "caverns"
+        ]
+      },
+      "1": {
+        "0": [
+          "meadow"
+        ],
+        "1": [
+          "meadow"
+        ],
+        "2": [
+          "forest"
+        ],
+        "3": [
+          "tundra"
+        ],
+        "4": [
+          "valley"
+        ],
+        "5": [
+          "valley"
+        ]
+      },
+      "2": {
+        "0": [
+          "meadow"
+        ],
+        "1": [
+          "forest"
+        ],
+        "2": [
+          "forest"
+        ],
+        "3": [
+          "swamp"
+        ],
+        "4": [
+          "valley"
+        ],
+        "5": [
+          "mountain"
+        ]
+      },
+      "3": {
+        "0": [
+          "forest"
+        ],
+        "1": [
+          "forest"
+        ],
+        "2": [
+          "swamp"
+        ],
+        "3": [
+          "swamp"
+        ],
+        "4": [
+          "mountain"
+        ],
+        "5": [
+          "mountain"
+        ]
+      },
+      "4": {
+        "0": [
+          "pale"
+        ],
+        "1": [
+          "forest"
+        ],
+        "2": [
+          "swamp"
+        ],
+        "3": [
+          "mountain"
+        ],
+        "4": [
+          "mountain"
+        ],
+        "5": [
+          "end"
+        ]
+      }
     },
-    "forest": {
-      "06": {"terrain": "forest"},
-      "07": {"terrain": "forest"},
-      "08": {"terrain": "forest"},
-      "09": {"terrain": "forest"},
-      "10": {"terrain": "forest"},
-      "11": {"terrain": "forest"}
-    },
-    "swamp": {
-      "12": {"terrain": "swamp"},
-      "13": {"terrain": "swamp"},
-      "14": {"terrain": "swamp"},
-      "15": {"terrain": "swamp"}
-    },
-    "mountain": {
-      "16": {"terrain": "mountain"},
-      "17": {"terrain": "mountain"},
-      "18": {"terrain": "mountain"},
-      "19": {"terrain": "mountain"},
-      "20": {"terrain": "mountain"}
-    },
-    "tundra": {
-      "21": {"terrain": "tundra"},
-      "22": {"terrain": "tundra"}
-    },
-    "valley": {
-      "23": {"terrain": "valley"},
-      "24": {"terrain": "valley"},
-      "25": {"terrain": "valley"},
-      "26": {"terrain": "valley"}
-    },
-    "special": {
-      "99": {"terrain": "end"},
-      "98": {"terrain": "pale"},
-      "97": {"caverns": "caverns"}
+    "tile_ids": {
+      "meadow": [
+        "00",
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "forest": [
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "swamp": [
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "mountain": [
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "tundra": [
+        "21",
+        "22"
+      ],
+      "valley": [
+        "23",
+        "24",
+        "25",
+        "26"
+      ],
+      "end": [
+        "99"
+      ],
+      "pale": [
+        "98"
+      ],
+      "caverns": [
+        "97"
+      ]
     }
   }
 }

@@ -6,40 +6,12 @@ import ui
 from ui import describe_location
 
 
-def make_tile(board: dict, coordinates: tuple, unused_tiles: dict) -> dict:
-    new_tile = {}
-    tile_type = ""
-    tile_id = None
-    if coordinates[0] + coordinates[1] < 3:
-        tile_type = "meadow"
-    elif coordinates == (0, 5):
-        tile_type = "special"
-        tile_id = "97"
-    elif coordinates in [(0, 3), (1, 3)]:
-        tile_type = "tundra"
-    elif (coordinates[1] == 4 and coordinates[0] < 3) or coordinates == (1, 5):
-        tile_type = "valley"
-    elif (coordinates[0] + coordinates[1] < 5) or (coordinates[0] == 1) and (coordinates != (4, 0)):
-        tile_type = "forest"
-    elif 4 < (coordinates[0] + coordinates[1]) < 7 and (1 < coordinates[0] and 1 < coordinates[1] < 4):
-        tile_type = "swamp"
-    elif 6 < (coordinates[0] + coordinates[1]) < 9:
-        tile_type = "mountain"
-    elif coordinates == (4, 5):
-        tile_type = "special"
-        tile_id = "99"
-    else:
-        tile_type = "special"
-        tile_id = "98"
+def make_tile(board: dict, coordinates: tuple, map_data: dict) -> dict:
+    tile_terrain = map_data["regions"][str(coordinates[0])][str(coordinates[1])][0]
+    tile_id = random.choice(map_data["tile_ids"][tile_terrain])
+    map_data["tile_ids"][tile_terrain].remove(tile_id)
 
-    if tile_id is None:
-        tile_id = random.choice(list(unused_tiles[tile_type]))
-
-    print(coordinates, tile_type, tile_id)
-    tile_data = unused_tiles[tile_type][tile_id]
-    unused_tiles[tile_type].pop(tile_id)
-    new_tile = tile_data
-    new_tile["id"] = tile_id
+    new_tile = {"id": tile_id, "terrain": tile_terrain}
 
     return new_tile
 
@@ -66,7 +38,10 @@ def run_tile(game_state):
     ui.display_map(game_state)
     describe_game_state(game_state)
     describe_new_tile(game_state)
-    movement = player_input.get_user_input(game_state)
+    while True:
+        movement = player_input.get_user_input(game_state)
+        if player_input.move_is_valid(game_state, movement):
+            break
     player_input.move_character(game_state, movement)
 
 

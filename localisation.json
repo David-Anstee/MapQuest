@@ -4,7 +4,18 @@
     "bad_move": "Cannot move in that direction!"
   },
   "prompt": {
-    "move": "Enter a direction to move ('n', 's', 'e', 'w'): "
+    "move": "Enter a direction to move ('n', 's', 'e', 'w'): ",
+    "first_stat": "Select your primary stat: ",
+    "second_stat": "Select your secondary stat:",
+    "continue": "Press enter to continue"
+  },
+"info": {
+  "stat_bonuses": "Your stat bonuses are: "
+},
+  "stats": {
+    "insight": "Insight - your intelligence and ability to notice things",
+    "might": "Might - your physical strength and endurance",
+    "cunning": "Cunning - your deceptiveness and stealth"
   },
   "intro": {
     "0000": "Press enter to begin... "

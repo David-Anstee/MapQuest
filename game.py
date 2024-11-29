@@ -7,6 +7,7 @@ import time
 
 import data
 import encounter
+import localisation
 from localisation import get_text
 import ui
 import player_input
@@ -50,40 +51,35 @@ def make_character() -> dict:
     """
     character = {"x_coord": 0, "y_coord": 0, "hp": 5, "level": 1, "visited_rooms": [],
                  "insight": 0, "might": 0, "cunning": 0}
-    primary_prompt = (f"\nPick your primary stat:"
-                      f"\n1. Insight - your intelligence and ability to notice things"
-                      f"\n2. Might - your physical strength, and endurance"
-                      f"\n3. Cunning - your deceptiveness and stealth")
-    secondary_prompt = (f"\nPick your secondary stat:"
-                        f"\n1. Insight - your intelligence and ability to notice things"
-                        f"\n2. Might - your physical strength, and endurance"
-                        f"\n3. Cunning - your deceptiveness and stealth")
+    stats = ["insight", "might", "cunning"]
+
+    primary_prompt = f"{localisation.get_text("prompt", "first_stat", True)}"
+    for number, stat in enumerate(stats, 1):
+        primary_prompt += f"\n{number}. {localisation.get_text("stats", stat)}"
+
     primary_stat = input(primary_prompt)
-    valid_inputs = {1, 2, 3}
-    while not primary_stat.isnumeric() or not (int(primary_stat) in valid_inputs):
-        print("\nInvalid input. Please enter a number from 1-3.")
+    while not primary_stat.isnumeric() or not int(primary_stat) in [1, 2, 3]:
+        print("\nInvalid input. Please enter 1 - 3.")
         primary_stat = input(primary_prompt)
-    primary_stat = int(primary_stat)
-    valid_inputs.remove(primary_stat)
+    primary_stat = stats[int(primary_stat)-1]
+    stats.remove(primary_stat)
+
+    secondary_prompt = f"{localisation.get_text("prompt", "second_stat", True)}"
+    for number, stat in enumerate(stats, 1):
+        secondary_prompt += f"\n{number}. {localisation.get_text("stats", stat)}"
 
     secondary_stat = input(secondary_prompt)
-
-    while not secondary_stat.isnumeric() or not (int(secondary_stat) in valid_inputs):
-        print("\nInvalid input. Please enter a number from 1-3.")
+    while not secondary_stat.isnumeric() or not int(secondary_stat) in [1, 2]:
+        print("\nInvalid input. Please enter 1 or 2.")
         secondary_stat = input(secondary_prompt)
-    secondary_stat = int(secondary_stat)
+    secondary_stat = stats[int(secondary_stat)-1]
 
-    number_to_stat = {1: "insight", 2: "might", 3: "cunning"}
-    primary_stat = number_to_stat[primary_stat]
-    secondary_stat = number_to_stat[secondary_stat]
     character[primary_stat] = 2
     character[secondary_stat] = 1
-    print(f"\nYour stats bonuses are:"
-          f"\nInsight: +{character["insight"]}"
-          f"\nMight: +{character["might"]}"
-          f"\nCunning: +{character["cunning"]}")
-    input(f"\nPress enter to continue...")
 
+    print(f"{localisation.get_text("info", "stat_bonuses", True)} "
+          f"\n{localisation.get_stats({"character": character})}")
+    input(localisation.get_text("prompt", "continue", True))
     return character
 
 

@@ -81,22 +81,23 @@ def make_character() -> dict:
     return character
 
 
+def increase_stat(game_state: dict[str: dict], stat: str):
+    character = game_state["character"]
+    progression = (0, 1, 2, 3, 5, 8, 13)
+    for level in progression:
+        if level > character[stat]:
+            character[stat] = level
+            break
+
+
 def level_up_character(game_state: dict):
     character = game_state["character"]
     character["level"] += 1
-    stat_progression = [0, 1, 2, 3, 5, 8, 13]
-    new_stats = {"insight": 0, "might": 0, "cunning": 0}
-    for num in enumerate(stat_progression):
-        if character["insight"] == num[1] and num[1] < len(stat_progression):
-            new_stats["insight"] = stat_progression[num[0] + 1]
-        if character["might"] == num[1] and num[1] < len(stat_progression):
-            new_stats["might"] = stat_progression[num[0] + 1]
-        if character["cunning"] == num[1] and num[0] < len(stat_progression):
-            new_stats["cunning"] = stat_progression[num[0] + 1]
-    character["insight"] = new_stats["insight"]
-    character["might"] = new_stats["might"]
-    character["cunning"] = new_stats["cunning"]
 
+    stats = ("insight", "might", "cunning")
+    for stat in stats:
+        increase_stat(game_state, stat)
+    
 
 def skill_check(game_state: dict, target: int, stat=None, drama=True) -> int:
     character = game_state["character"]
@@ -141,6 +142,7 @@ def game():
 
     while not should_quit:
         tile.run_tile(game_state)
+        level_up_character(game_state)
 
 
 def main():

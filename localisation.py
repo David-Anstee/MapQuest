@@ -23,7 +23,7 @@ def generate_location_description(game_state):
     pass
 
 
-def get_stats(game_state: dict):
+def get_stats(game_state: dict[str: dict]):
     character = game_state["character"]
     return f"Insight: {character["insight"]}\nMight: {character["might"]}\nCunning: {character["cunning"]}"
 

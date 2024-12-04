@@ -3,6 +3,10 @@ David Anstee
 A01434810
 """
 from localisation import get_text
+COLOUR_RESET = "\033[0m"
+COLOUR_FORE = "\033[38;5;"
+COLOUR_BACK = "\033[48;5;"
+TEXT_EMPHASIS = "\033["
 
 
 def get_colour(terrain: str) -> str:
@@ -30,17 +34,12 @@ def get_colour(terrain: str) -> str:
         return ""
 
 
-def display_map(game_state: dict):
-    """
-    Print a map representing the game board.
+def style_text(text: str, fore_colour: int = None, back_colour: int = None, emphasis: int = None) -> str:
+    foreground_colour = f"{COLOUR_FORE}{fore_colour}m" if fore_colour is not None else ""
+    background_colour = f"{COLOUR_BACK}{back_colour}m" if back_colour is not None else ""
+    emphasis = f"{TEXT_EMPHASIS}{emphasis}m" if emphasis is not None else ""
 
-    :param board: the game board
-    :param character: the player character
-    :precondition: board is a dictionary where coordinates
-                   are mapped to tile descriptions
-    :precondition: character is a dictionary containing the
-                   player's current coordinates
-    :postcondition: Print the map
+    return f"{emphasis}{foreground_colour}{background_colour}{text}{COLOUR_RESET}"
 
     >>> example_board = {(0, 0): "the side of a lake", (0, 1): "the side of a lake"}
     >>> example_character = {"x_coord": 0, "y_coord": 0, "visited_rooms": [(0, 0)]}

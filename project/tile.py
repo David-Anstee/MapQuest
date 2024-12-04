@@ -204,6 +204,7 @@ def run_tile(game_state: dict[str: dict]):
 
     if coordinates not in character["visited_rooms"]:
         events.start_event(game_state=game_state, tile_id=board[coordinates]["id"])
+        character["visited_rooms"].append(coordinates)
 
     if character["items"]["map"]:
         ui.display_map(game_state, character["items"]["map"] > 1)

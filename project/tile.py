@@ -216,7 +216,6 @@ def run_tile(game_state: dict[str: dict]):
     character = game_state["character"]
     board = game_state["board"]
     coordinates = (character["x_coord"], character["y_coord"])
-
     if coordinates not in character["visited_rooms"]:
         events.start_event(game_state=game_state, tile_id=board[coordinates]["id"])
         character["visited_rooms"].append(coordinates)

@@ -34,6 +34,7 @@ def get_stats(game_state: dict[str: dict]):
 def display_level_up_message(game_state: dict[str: dict]):
     character = game_state["character"]
     print(f"{get_text("info", "level_up", True)} {character["level"]}!")
+    print(f"New stat levels:\n{get_stats(game_state=game_state)}")
     print(f"{character["xp"]}/{character["level"]*2} {get_text("info", "next_level")} {character["level"]+1}")
 
 

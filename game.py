@@ -182,7 +182,6 @@ def game():
 
     while not should_quit:
         tile.run_tile(game_state)
-        level_up_character(game_state)
 
 
 def main():

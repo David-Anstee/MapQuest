@@ -23,20 +23,6 @@ def make_board(rows: int, columns: int) -> dict:
     return new_board
 
 
-def get_stat_selection(prompt: str, valid_stats: list[str]) -> str:
-    for number, stat in enumerate(valid_stats, 1):
-        prompt += f"\n{number}. {localisation.get_text("stats", stat)}"
-    num_selection = input(prompt)
-
-    while not num_selection.isnumeric() or not (1 <= int(num_selection) <= len(valid_stats)):
-        print(f"\nInvalid input. Please enter 1 - {len(valid_stats)}.")
-        num_selection = input(prompt)
-
-    stat = valid_stats[int(num_selection)-1]
-    valid_stats.remove(stat)
-    return stat
-
-
 def make_character() -> dict:
     """
     Make the player character.
@@ -54,8 +40,8 @@ def make_character() -> dict:
     character["name"] = name_input
 
     primary_stat = player_input.get_user_input(options=stats, option_prompt="first_stat", option_namespace="stats")
-    secondary_stat = get_stat_selection(localisation.get_text("prompt", "second_stat", True),
-                                        stats)
+    stats.remove(primary_stat)
+    secondary_stat = player_input.get_user_input(options=stats, option_prompt="second_stat", option_namespace="stats")
 
     character[primary_stat] = 2
     character[secondary_stat] = 1

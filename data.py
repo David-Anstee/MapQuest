@@ -1,11 +1,13 @@
 import json
 
-DATA_FILE = "game_data.json"
+
+def get_data_file() -> str:
+    return "game_data.json"
 
 
 def get_data(identifiers: list[str]):
     output = None
-    with open(DATA_FILE, 'r') as text_file:
+    with open(get_data_file(), 'r') as text_file:
         data = json.load(text_file)
         for name in identifiers:
             data = data[name]

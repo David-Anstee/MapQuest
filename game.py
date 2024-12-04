@@ -11,7 +11,6 @@ import tile
 
 
 def make_board(rows: int, columns: int) -> dict:
-
     new_board = {}
     map_data = data.get_data(["map_data"])
     for row in range(rows):
@@ -57,7 +56,6 @@ def make_character() -> dict:
 
     print(f"{localisation.get_text("info", "stat_bonuses", True)} "
           f"\n{localisation.get_stats({"character": character})}")
-    input(localisation.get_text("prompt", "continue", True))
     return character
 
 
@@ -122,10 +120,7 @@ def skill_check(game_state: dict, target: int, stat=None, drama=True) -> int:
         time.sleep(1.5)
     print(f"Total roll: {total_roll}")
 
-    if total_roll >= target:
-        return 2 + (total_roll >= target+6)
-    else:
-        return 1 - (total_roll <= target-6)
+    return total_roll >= target
 
 
 def pass_time(game_state: dict[str: dict], time_passed: int, stop_at_midnight: bool = False):

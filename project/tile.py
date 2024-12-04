@@ -1,13 +1,8 @@
 import random
 
-import encounter
-import events
-import state
-import localisation
-import player_input
-import ui
-from player_input import move_character, get_user_input
-from ui import describe_location
+from project import encounter, events, state, localisation, player_input, ui
+from project.player_input import move_character, get_user_input
+from project.ui import describe_location
 
 
 def make_tile(board: dict, coordinates: tuple, map_data: dict) -> dict:

@@ -1,6 +1,6 @@
 from unittest import TestCase
 from unittest.mock import patch
-from project.game import add_xp
+from game import add_xp
 
 
 class Test(TestCase):

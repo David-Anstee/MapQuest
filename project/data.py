@@ -1,4 +1,4 @@
-import __init__
+import project as __init__
 import json
 
 

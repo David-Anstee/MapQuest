@@ -5,10 +5,7 @@ A01434810
 import random
 import time
 from colorama import just_fix_windows_console
-import data
-import localisation
-import tile
-from project import state
+from project import data, localisation, tile, state
 
 
 def skill_check(game_state: dict, target: int, stat=None, drama=True) -> int:

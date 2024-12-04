@@ -3,7 +3,7 @@ David Anstee
 A01434810
 """
 import random
-from localisation import get_text
+from project.localisation import get_text
 
 
 def roll_for_encounter(encounter_rate: int = 10) -> bool:

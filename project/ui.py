@@ -2,7 +2,7 @@
 David Anstee
 A01434810
 """
-from localisation import get_text
+from project.localisation import get_text
 COLOUR_RESET = "\033[0m"
 COLOUR_FORE = "\033[38;5;"
 COLOUR_BACK = "\033[48;5;"

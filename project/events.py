@@ -1,4 +1,6 @@
-from project import game, player_input, state
+from project import player_input, state
+import game
+
 from project.data import get_event_data
 
 

@@ -2,8 +2,7 @@
 David Anstee
 A01434810
 """
-import localisation
-from localisation import get_text
+from project.localisation import get_text
 
 
 def move_is_valid(game_state: dict, direction: list) -> bool:
@@ -130,9 +129,9 @@ def get_user_input(game_state: dict[str, dict], options: [str], option_prompt: s
     while True:
         prompt = f"{get_text(prompt_namespace, option_prompt, True)}"
         for number, option in enumerate(options, 1):
-            prompt += f"\n{number}. {localisation.get_text(option_namespace, option)}"
+            prompt += f"\n{number}. {get_text(option_namespace, option)}"
             if extra_info:
-                prompt += localisation.get_text("prompt_info", option, True)
+                prompt += get_text("prompt_info", option, True)
         user_input = input(prompt+f"\n")
         if user_input.lower() in options:
             return user_input

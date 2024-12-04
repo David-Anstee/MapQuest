@@ -154,9 +154,10 @@ def game():
     """
     Drive the game.
     """
+    just_fix_windows_console()
     input(get_text("intro", "0000"))
 
-    game_state = {"board": make_board(5, 6), "character": make_character()}
+    game_state = {"board": make_board(5, 6), "character": make_character(), "world": {"time": 0, "day": 1}}
     should_quit = False
 
     while not should_quit:

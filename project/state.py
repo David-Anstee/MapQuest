@@ -50,6 +50,9 @@ def make_character() -> dict:
                  "insight": 0, "might": 0, "cunning": 0, "items": {"map": 1, "light": 0}}
 
     stats = ["insight", "might", "cunning"]
+    name_input = input("What is your name?").strip()
+    character["name"] = name_input
+
     primary_stat = get_stat_selection(localisation.get_text("prompt", "first_stat", True),
                                       stats)
     secondary_stat = get_stat_selection(localisation.get_text("prompt", "second_stat", True),

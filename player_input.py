@@ -2,6 +2,7 @@
 David Anstee
 A01434810
 """
+import localisation
 from localisation import get_text
 
 
@@ -109,9 +110,19 @@ def direction_from_input(user_input: str) -> list[int, int]:
     return direction
 
 
-def get_user_input(game_state: dict):
-    """
-    Get and respond to input from the user.
+def get_movement():
+    options = ["north", "south", "east", "west", "cancel"]
+    while True:
+        prompt = f"{get_text("prompt", "move", True)}"
+        for number, option in enumerate(options, 1):
+            prompt += f"\n{number}. {option}"
+        user_input = input(prompt)
+        if user_input.lower() in options:
+            return user_input
+        elif user_input.isnumeric() and 0 < int(user_input) <= len(options):
+            return options[int(user_input)-1]
+        else:
+            print(get_text("error", "invalid_input", True))
 
 
 def get_user_input(game_state: dict[str, dict], options: [str], option_prompt: str = "options", extra_info: bool = False,

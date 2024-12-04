@@ -5,6 +5,8 @@ A01434810
 import random
 import time
 
+from colorama import just_fix_windows_console
+
 import data
 import encounter
 import localisation

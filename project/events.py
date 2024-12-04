@@ -1,7 +1,36 @@
 from project import player_input, state
-import game
-
 from project.data import get_event_data
+import time
+import random
+
+
+def skill_check(game_state: dict, target: int, stat=None, drama=True) -> int:
+    character = game_state["character"]
+    modifier = 0 if (stat is None) else character[stat]
+    print("Rolling dice...")
+    if drama:
+        time.sleep(1)
+    first_roll = random.randint(1, 6)
+    print(first_roll)
+
+    if drama:
+        time.sleep(2)
+    second_roll = random.randint(1, 6)
+    print(second_roll)
+    if drama:
+        time.sleep(1.5)
+    print(f"Rolled {first_roll} + {second_roll} = {first_roll+second_roll}.")
+    total_roll = first_roll + second_roll + modifier
+
+    if modifier != 0:
+        if drama:
+            time.sleep(1.5)
+        print(f"Modifier ({stat.title()}): {modifier}")
+    if drama:
+        time.sleep(1.5)
+    print(f"Total roll: {total_roll}")
+
+    return total_roll >= target
 
 
 def get_next_stage(game_state: dict[str: dict], choice: dict[str: ...]) -> str:
@@ -9,7 +38,7 @@ def get_next_stage(game_state: dict[str: dict], choice: dict[str: ...]) -> str:
         skill_check_data = choice["skill_check"]
         stat = skill_check_data[0]
         target = skill_check_data[1]
-        success = game.skill_check(game_state=game_state, stat=stat, target=target)
+        success = skill_check(game_state=game_state, stat=stat, target=target)
     else:
         success = True
     next_stage = choice["success"] if success else choice["failure"]

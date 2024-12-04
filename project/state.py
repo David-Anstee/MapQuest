@@ -116,3 +116,7 @@ def set_time(game_state: dict[str: dict], new_time: int) -> int:
     if old_time > new_time or time_passed > 7:
         world["day"] += 1
     return time_passed
+
+
+def should_quit():
+    return False

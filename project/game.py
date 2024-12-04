@@ -12,7 +12,7 @@ import tile
 
 def make_board(rows: int, columns: int) -> dict:
     new_board = {}
-    map_data = data.get_data(["map_data"])
+    map_data = data.get_map_data(["map_data"])
     for row in range(rows):
         for column in range(columns):
             new_board[(row, column)] = tile.make_tile(new_board, (row, column), map_data)

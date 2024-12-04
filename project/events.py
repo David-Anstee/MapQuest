@@ -2,12 +2,7 @@ from __init__ import EVENT_DATA
 from project import game, player_input
 import json
 
-
-def get_event_sequence(tile_id: str) -> dict[str: ...]:
-    with open(EVENT_DATA, 'r') as event_data:
-        event_json = json.load(event_data)
-        event_sequence = event_json["tile_events"][tile_id]
-        return event_sequence
+from project.data import get_event_data
 
 
 def get_next_stage(game_state: dict[str: dict], choice: dict[str: ...]) -> str:
@@ -47,9 +42,9 @@ def run_event_stage(game_state: dict[str: dict], event_stage: dict[str: ...]) ->
 
 def start_event(game_state: dict[str: dict], tile_id: str):
     try:
-        event_sequence = get_event_sequence(tile_id)
+        event_sequence = get_event_data(tile_id)
     except FileNotFoundError:
-        print(f"MISSING FILE {EVENT_FILE}")
+        print(f"MISSING EVENT FILE")
         return
     except KeyError:
         print(f"EVENT NOT FOUND: {tile_id}")

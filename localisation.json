@@ -4,13 +4,38 @@
     "bad_move": "Cannot move in that direction!"
   },
   "prompt": {
-    "move": "Enter a direction to move ('n', 's', 'e', 'w'): ",
+    "move": "Select a direction to travel: ",
     "first_stat": "Select your primary stat: ",
     "second_stat": "Select your secondary stat:",
-    "continue": "Press enter to continue"
+    "continue": "Press enter to continue",
+    "options": "Select an action: ",
+    "travel": "Travel",
+    "travel_disabled": "Travel (unavailable)",
+    "camp": "Camp",
+    "camp_disabled": "Camp (unavailable)",
+    "camp_options": "When should you rest until?",
+    "stop_to_camp": "Stop to camp",
+    "continue_travel": "Continue travelling",
+    "time_0": "morning twilight",
+    "time_1": "dawn",
+    "time_2": "mid-morning",
+    "time_3": "noon",
+    "time_4": "the afternoon",
+    "time_5": "evening",
+    "time_6": "dusk",
+    "time_7": "after sunset",
+    "next_day": "tomorrow morning",
+    "cancel": "[cancel]"
+  },
+  "prompt_info": {
+    "travel": "Start moving to a new area.",
+    "travel_disabled": "It is too late in the day to start traveling.",
+    "camp": "Set up camp. Camping passes time and recovers health.",
+    "camp_disabled": "You can only camp when you are wounded or it is late in the day."
   },
 "info": {
-  "stat_bonuses": "Your stat bonuses are: "
+  "stat_bonuses": "Your stat bonuses are: ",
+  "leveled_up": "You leveled up!"
 },
   "stats": {
     "insight": "Insight - your intelligence and ability to notice things",
@@ -20,19 +45,58 @@
   "intro": {
     "0000": "Press enter to begin... "
   },
+  "time": {
+    "0": "just before sunrise",
+    "1": "dawn",
+    "2": "mid-morning",
+    "3": "around midday",
+    "4": "in the afternoon",
+    "5": "evening",
+    "6": "dusk",
+    "7": "past sunset"
+  },
   "location": {
     "meadow": "a peaceful meadow",
     "forest": "a dense forest",
     "swamp": "a lush swamp",
-    "mountain": "a treacherous mountain"
+    "mountain": "a treacherous mountain",
+    "tundra": "a desolate tundra",
+    "valley": "a deep valley",
+    "cavern": "a vast cavern",
+    "pale": "a place beyond places",
+    "end": "end"
   },
   "location_descriptions": {
-    "00": "A plain of grass stretches out around you. Flowers sway gently in the breeze. You detect no sign of civilisation.",
-    "01": "The grass comes up to your knees. A long trail of trampled vegetation stretches behind you.",
-    "02": "Gentle hills rise and fall here. Standing at the crest of one, you survey your surroundings. More grass. More hills. Nothing else.",
-    "03": "In a field of grass, you find a lone pond. The water is clear; you can see all the way to the bottom. Nothing stirs beneath the surface.",
-    "04": "meadow text",
-    "05": "meadow text 2"
+    "AA": "A plain of grass stretches out around you. Flowers sway gently in the breeze. You detect no sign of civilisation.",
+    "AB": "The grass comes up to your knees. A long trail of trampled vegetation stretches behind you.",
+    "AC": "Gentle hills rise and fall here. Standing at the crest of one, you survey your surroundings. More grass. More hills. Nothing else.",
+    "AD": "In a field of grass, you find a lone pond. The water is clear; you can see all the way to the bottom. Nothing stirs beneath the surface.",
+    "AE": "A few trees are scattered around the field, swaying in the wind.",
+    "AF": "A small wooden hut stand ahead of you. Nothing but grass stretches for miles around it.",
+    "BA": "You suddenly find yourself on the edge of a small clearing. A few small houses stand within it. The hamlet is silent and still.",
+    "BB": "A strip of rocks splits the forest in two. In the middle of the divide, the rocks plunge a foot, into a thin creek.",
+    "BC": "You pause before a tree with strange markings on. Carved by a knife, they are old and faded.",
+    "BD": "The canopy above you is thick. Scattered rays of light shine down on the dark underbrush.",
+    "BE": "The ground beneath you is hard. You glance down, and see the shape of cobblestones.",
+    "BF": "Your path runs through a small ravine. It is shallow, but the steep walls only allow you a few feet of space.",
+    "CA": "A few round huts sit on poles driven into the bogland. Smoke rises from their chimneys.",
+    "CB": "You struggle to find a solid path through the swamp. Every few steps, the wet ground gives swallows your feet.",
+    "CD": "swamp text",
+    "CE": "swamp text",
+    "DA": "mountain text",
+    "DB": "mountain text",
+    "DC": "mountain text",
+    "DD": "mountain text",
+    "DE": "mountain text",
+    "EA": "tundra text",
+    "EB": "tundra text",
+    "FA": "valley text",
+    "FB": "valley text",
+    "FC": "valley text",
+    "FD": "valley text",
+    "ZA": "end text",
+    "ZB": "pale text",
+    "ZC": "cavern text"
   },
   "encounter": {
     "start": "As you travel, you encounter a foe!"
@@ -43,5 +107,42 @@
     "3": "wounded",
     "4": "exhausted",
     "5": "healthy"
+  },
+  "event_desc": {
+    "example_0_description": "Example event intro",
+    "example_1_description": "Example event success",
+    "example_2_description": "Example event failure",
+
+    "AA_0_description": "...",
+    "AA_1_description": "You find a useful herb.",
+    "AA_2_description": "You spend the better part of an hour with your knees in the dirt, searching. By the time you find a useful herb the sun has shifted in the sky.",
+    "AA_3_description": "The flowers continue to sway, undisturbed by your passing.",
+
+    "AB_0_description": "A few paces from you something rustles through the grass...",
+    "AB_1_description": "You move slowly, the barely shifting the grass as you move. As you get close enough to see, the rustling stops. A brass necklace lies on the ground before you.",
+    "AB_2_description": "You move slowly, trying not to shift the grass. Too slowly, in fact. By the time you reach patch that was rustling, its source has moved on.",
+    "AB_3_description": "You lunge with all your force, easily clearing the distance. Your hands find something cold and smooth. A brass necklace.",
+    "AB_4_description": "You lunge with all your force, but land short of your target. By the time your back on your feet, you can only catch a glimpse of grass rustling in the distance.",
+    "AB_5_description": "You catch a glimpse of light reflecting off whatever's disturbing the grass. After a moment, the rustling dissipates."
+  },
+  "event_option": {
+    "example_0_option_0": "Attempt insight check",
+    "example_1_option_0": "Finish event",
+    "example_2_option_0": "Finish event",
+
+    "AA_0_option_0": "Forage from among the flowers (Insight)",
+    "AA_0_option_1": "Move on",
+    "AA_1_option_0": "Pocket it and keep moving",
+    "AA_2_option_0": "Wipe yourself off and keep moving",
+    "AA_2_option_1": "Eventually they vanish behind the horizon",
+
+    "AB_0_option_0": "Carefully creep towards it (Cunning)",
+    "AB_0_option_1": "Dash towards it  (Might)",
+    "AB_0_option_2": "Pause to watch it",
+    "AB_1_option_0": "Bizarre...",
+    "AB_2_option_0": "A lesson learned, the hard way",
+    "AB_3_option_0": "How bizarre...",
+    "AB_4_option_0": "Trudge on through the grass",
+    "AB_5_option_0": "A strange place..."
   }
 }

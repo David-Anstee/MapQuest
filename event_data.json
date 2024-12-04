@@ -1,0 +1,78 @@
+{
+  "tile_events": {
+    "example": {
+      "0": {
+        "description": "example_0_description",
+        "options": {"example_0_option_0": {"skill_check": ["insight", 6], "success":"1",
+          "failure": "2"
+        }}
+      },
+      "1": {
+        "description": "example_1_description",
+        "xp": 2,
+        "effects": {"character": {"hp": 1}},
+        "options": {"example_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "example_2_description",
+        "xp": 1,
+        "effects": {"character": {"hp": -1}},
+        "options": {"example_2_option_0": {"success":"-1"}}
+      }
+    },
+    "AA": {
+      "0": {
+        "description": "AA_0_description",
+        "options": {"AA_0_option_0": {"skill_check": ["insight", 6], "success": "1", "failure": "2"},
+                    "AA_0_option_1": {"success": "3"}
+        }
+      },
+      "1": {
+        "description": "AA_1_description",
+        "xp": 1,
+        "options": {"AA_1_option_0": {"success": "-1"}}
+      },
+      "2": {
+        "description": "AA_2_description",
+        "options": {"AA_2_option_0": {"success": "-1"}}
+      },
+      "3": {
+        "description": "AA_3_description",
+        "options": {"AA_3_option_0": {"success": "-1"}}
+      }
+    },
+    "AB": {
+      "0": {
+        "description": "AB_0_description",
+        "options": {"AB_0_option_0": {"skill_check": ["cunning", 7], "success": "1", "failure": "2"},
+                    "AB_0_option_1": {"skill_check": ["might", 9], "success": "3", "failure": "4"},
+                    "AB_0_option_2": {"success": "5"}
+
+        }
+      },
+      "1": {
+        "description": "AB_1_description",
+        "xp": 1,
+        "options": {"AB_1_option_0": {"success": "-1"}}
+      },
+      "2": {
+        "description": "AB_2_description",
+        "options": {"AB_2_option_0": {"success": "-1"}}
+      },
+      "3": {
+        "xp": 1,
+        "description": "AB_3_description",
+        "options": {"AB_3_option_0": {"success": "-1"}}
+      },
+      "4": {
+        "description": "AB_4_description",
+        "options": {"AB_4_option_0": {"success": "-1"}}
+      },
+      "5": {
+        "xp": 1,
+        "description": "AB_5_description",
+        "options": {"AB_5_option_0": {"success": "-1"}}
+      }
+    }
+  }
+}

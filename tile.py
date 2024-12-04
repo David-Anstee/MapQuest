@@ -19,9 +19,21 @@ def make_tile(board: dict, coordinates: tuple, map_data: dict) -> dict:
 def describe_game_state(game_state):
     board = game_state["board"]
     character = game_state["character"]
+    world = game_state["world"]
     coordinates = (character["x_coord"], character["y_coord"])
-    print(f"\nYou are in {localisation.get_text("location", board[coordinates]["terrain"])}")
+    time_description = ui.style_text(text=localisation.get_text(namespace="time", loc_id=(str(world["time"]))),
+                                      fore_colour=11, emphasis=5)
+    terrain_description = ui.style_text(text=localisation.get_text(namespace="location",
+                                                                    loc_id=board[coordinates]["terrain"]), fore_colour=14)
+    day_description = f"Day {ui.style_text(text=str(world["day"]), fore_colour=14)}"
+    day_description = f"{ui.style_text(day_description, emphasis=1)}"
+    day_description = f"{ui.style_text(day_description, emphasis=4)}"
+    print(f"{day_description}")
+    #time.sleep(1.5)
+    print(f"It is {time_description} in {terrain_description}")
+    #time.sleep(3)
     print(f"You are {localisation.get_text("hp", str(character["hp"]))} ({str(character["hp"])} health).")
+    #time.sleep(3)
 
 
 def describe_new_tile(game_state):

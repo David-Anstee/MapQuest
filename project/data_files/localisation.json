@@ -29,9 +29,9 @@
     "cancel": "[cancel]"
   },
   "hint": {
-    "1": "You feel you should get your bearings by exploring the meadow",
-    "2": "You feel you should explore whatever lies beyond the meadow",
-    "3": "You feel your journey will eventually lead you through a swamp",
+    "1": "You feel exploring the meadow will help you get your bearing",
+    "2": "You feel you should explore beyond the edge of the meadow",
+    "3": "You feel your journey will lead you through a swamp",
     "4": "You feel you must pass beyond a mountains range to complete your journey",
     "5": "You feel your journey will end in the southeast"
   },

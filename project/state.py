@@ -37,7 +37,7 @@ def make_character() -> dict:
                  }
 
     stats = ["insight", "might", "cunning"]
-    name_input = input("What is your name?").strip()
+    name_input = input("What is your name?\n").strip()
     character["name"] = name_input
 
     primary_stat = player_input.get_user_input(options=stats, option_prompt="first_stat", option_namespace="stats")

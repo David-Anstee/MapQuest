@@ -28,7 +28,7 @@ def get_location_description(game_state: dict[str: dict]) -> str:
 
 def get_stats(game_state: dict[str: dict]):
     character = game_state["character"]
-    return f"Insight: +{character["insight"]}\nMight: +{character["might"]}\nCunning: + {character["cunning"]}"
+    return f"Insight: +{character["insight"]}\nMight: +{character["might"]}\nCunning: +{character["cunning"]}"
 
 
 def display_level_up_message(game_state: dict[str: dict]):

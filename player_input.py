@@ -104,8 +104,8 @@ def direction_from_input(user_input: str) -> list[int, int]:
     user_input = user_input.lower()
 
     direction = [0, 0]
-    direction[0] += (user_input in ["n", "s"]) * ((-1) ** (user_input == "n"))
-    direction[1] += (user_input in ["e", "w"]) * ((-1) ** (user_input == "w"))
+    direction[0] += (user_input in ["north", "south"]) * ((-1) ** (user_input == "north"))
+    direction[1] += (user_input in ["east", "west"]) * ((-1) ** (user_input == "west"))
 
     return direction
 

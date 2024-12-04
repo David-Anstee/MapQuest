@@ -4,36 +4,14 @@ A01434810
 """
 import random
 import time
-
 from colorama import just_fix_windows_console
-
 import data
-import encounter
 import localisation
-from localisation import get_text
-import ui
-import player_input
 import tile
 
 
 def make_board(rows: int, columns: int) -> dict:
-    """
-    Make the game board.
 
-    :param rows: the width of the board
-    :param columns: the height of the board
-    :precondition: rows is a positive integer
-    :precondition: columns is a positive integer
-    :postcondition: creates a dict representing the game board,
-                    where tuples representing xy coordinates are
-                    mapped to strings representing tile descriptions
-    :return: the board as a dictionary of tuple:string
-
-    >>> make_board(3, 3) # doctest: +SKIP
-    {(0, 0): 'a mountain', (0, 1): 'a mountain', (0, 2): 'a forest', (1, 0): 'the side of a lake',
-    (1, 1): 'a peaceful meadow', (1, 2): 'a plain', (2, 0): 'a forest', (2, 1): 'the side of a lake',
-    (2, 2): 'a mountain'}
-    """
     new_board = {}
     map_data = data.get_data(["map_data"])
     for row in range(rows):
@@ -175,7 +153,7 @@ def game():
     Drive the game.
     """
     just_fix_windows_console()
-    input(get_text("intro", "0000"))
+    input(localisation.get_text("intro", "0000"))
 
     game_state = {"board": make_board(5, 6), "character": make_character(), "world": {"time": 0, "day": 1}}
     should_quit = False

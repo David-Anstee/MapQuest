@@ -83,7 +83,7 @@ def is_directional(user_input: str) -> bool:
     return user_input.lower() in ["n", "s", "e", "w"]
 
 
-def direction_from_input(user_input: str) -> list:
+def direction_from_input(user_input: str) -> list[int, int]:
     """
     Get direction from the user's input.
 

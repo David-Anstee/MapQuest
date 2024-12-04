@@ -7,7 +7,7 @@
     "move": "Select a direction to travel: ",
     "first_stat": "Select your primary stat: ",
     "second_stat": "Select your secondary stat:",
-    "continue": "Press enter to continue",
+    "continue": "Continue",
     "options": "Select an action: ",
     "travel": "Travel - continue your journey",
     "travel_disabled": "Travel (unavailable - too late in the day!)",
@@ -38,7 +38,9 @@
 "info": {
   "stat_bonuses": "Your stat bonuses are: ",
   "level_up": "You reached level",
-  "next_level": "XP to get to level"
+  "next_level": "XP to get to level",
+  "consume_supplies": "You consumed 1 supplies before resting",
+  "no_supplies": "You are out of supplies. You feel weaker..."
 },
   "stats": {
     "insight": "Insight - your intelligence and ability to notice things",

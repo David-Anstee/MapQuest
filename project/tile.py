@@ -88,9 +88,24 @@ def start_camping(game_state: dict[str: dict]):
     if user_input != "cancel":
         new_time = user_input.split("_")[1]
         new_time = int(new_time) if new_time.isnumeric() else 0
+        start_day = world["day"]
         time_passed = state.set_time(game_state=game_state, new_time=new_time)
-        character['hp'] += (time_passed // 4)
+        if world["day"] > start_day:
+            if character["supplies"] > 1:
+                character["hp"] += 2
+                character["supplies"] -= 1
+                print(localisation.get_text("info", "consume_supplies", True))
+                print(f"Restored 2 hp (new hp: {min(character["hp"], 5)})")
+                print(f"Consumed 1 supplies (remaining: {min(character["supplies"], 5)})")
+            else:
+                print(localisation.get_text("info", "no_supplies"))
+                character["health"] -= 1
+                print(f"Lost 1 health (remaining: {min(character["hp"])})")
+        else:
+            character['hp'] += (time_passed // 4)
+            print(f"You restored 2 hp while resting (new hp: {min(character["hp"], 5)})")
         character['hp'] = min(character['hp'], character['max_hp'])
+        player_input.get_user_input(["continue"])
         return True
     else:
         return False

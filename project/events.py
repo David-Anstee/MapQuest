@@ -79,14 +79,18 @@ def start_event(game_state: dict[str: dict], tile_id: str):
         return
 
     xp_reward = 0
+    time_passed = 0
     event_stage = "0"
     while event_stage != "-1":
         event = event_sequence[event_stage]
         xp_reward += event["xp"] if "xp" in event else 0
+        time_passed += event["time"] if "time" in event else 0
         event_stage = run_event_stage(game_state=game_state, event_stage=event)
 
     if xp_reward:
         state.add_xp(game_state=game_state, amount=xp_reward)
+    if time_passed:
+        state.pass_time(game_state=game_state, time_passed=time_passed, stop_at_midnight=True)
 
 
 def main():

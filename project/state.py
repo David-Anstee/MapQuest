@@ -3,7 +3,7 @@ from project import localisation, data, tile, player_input
 
 def make_game_state():
     world = make_world()
-    board = make_board(5, 5)
+    board = make_board(5, 6)
     character = make_character()
 
     game_state = {"world": world, "board": board, "character": character}

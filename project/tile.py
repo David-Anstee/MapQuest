@@ -45,7 +45,7 @@ def describe_new_tile(game_state):
     character = game_state["character"]
     coordinates = (character["x_coord"], character["y_coord"])
     if coordinates not in character["visited_rooms"]:
-        print(localisation.generate_location_description(game_state))
+        print(localisation.get_location_description(game_state))
         #time.sleep(5)
     else:
         print("You have been here before.")

@@ -21,7 +21,7 @@ def get_text(namespace: str, loc_id: str, new_line: bool = False) -> str:
     return output
 
 
-def generate_location_description(game_state: dict[str: dict]) -> str:
+def get_location_description(game_state: dict[str: dict]) -> str:
     character = game_state["character"]
     board = game_state["board"]
     tile = board[(character["x_coord"], character["y_coord"])]

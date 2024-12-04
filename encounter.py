@@ -6,9 +6,9 @@ import random
 from localisation import get_text
 
 
-def roll_for_encounter(encounter_rate: int = 20) -> bool:
+def roll_for_encounter(encounter_rate: int = 10) -> bool:
     encounter_roll = random.randint(1, 100)
-    return encounter_roll < encounter_rate
+    return encounter_roll <= encounter_rate
 
 
 def generate_encounter(game_state: dict):

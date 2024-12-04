@@ -9,11 +9,12 @@
     "second_stat": "Select your secondary stat:",
     "continue": "Press enter to continue",
     "options": "Select an action: ",
-    "travel": "Travel",
-    "travel_disabled": "Travel (unavailable)",
-    "camp": "Camp",
+    "travel": "Travel - continue your journey",
+    "travel_disabled": "Travel (unavailable - too late in the day!)",
+    "camp": "Camp - pass time and regain health",
     "camp_disabled": "Camp (unavailable)",
     "camp_options": "When should you rest until?",
+    "reflect": "Reflect - consider your current situation",
     "stop_to_camp": "Stop to camp",
     "continue_travel": "Continue travelling",
     "time_0": "morning twilight",
@@ -27,11 +28,12 @@
     "next_day": "tomorrow morning",
     "cancel": "[cancel]"
   },
-  "prompt_info": {
-    "travel": "Start moving to a new area.",
-    "travel_disabled": "It is too late in the day to start traveling.",
-    "camp": "Set up camp. Camping passes time and recovers health.",
-    "camp_disabled": "You can only camp when you are wounded or it is late in the day."
+  "hint": {
+    "1": "You feel you should get your bearings by exploring the meadow",
+    "2": "You feel you should explore whatever lies beyond the meadow",
+    "3": "You feel your journey will eventually lead you through a swamp",
+    "4": "You feel you must pass beyond a mountains range to complete your journey",
+    "5": "You feel your journey will end in the southeast"
   },
 "info": {
   "stat_bonuses": "Your stat bonuses are: ",

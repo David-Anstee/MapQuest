@@ -33,7 +33,8 @@ def make_character() -> dict:
     :return: the player character as a dictionary
     """
     character = {"x_coord": 0, "y_coord": 0, "max_hp": 5, "hp": 5, "level": 1, "xp": 0, "visited_rooms": [],
-                 "insight": 0, "might": 0, "cunning": 0, "items": {"map": 1, "light": 0}}
+                 "insight": 0, "might": 0, "cunning": 0, "items": {"map": 1, "light": 0, }, "supplies": 5, "trinkets": 0
+                 }
 
     stats = ["insight", "might", "cunning"]
     name_input = input("What is your name?").strip()
@@ -71,9 +72,7 @@ def add_xp(game_state: dict[str: dict], amount: int):
         level_up_character(game_state=game_state)
 
     character["xp"] = new_xp
-    print(f"Current level: {character["level"]}")
-    print(f"Current xp: {new_xp}")
-    print(f"xp needed for next level: {character["level"]*2}")
+    print(f"Current xp: {new_xp}/{character["level"]*2}")
 
 
 def level_up_character(game_state: dict):

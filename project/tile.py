@@ -60,6 +60,7 @@ def get_options(game_state):
         options.append("travel_disabled")
 
     options.append("camp")
+    options.append("reflect")
     return options
 
 
@@ -87,7 +88,7 @@ def start_camping(game_state: dict[str: dict]):
     if user_input != "cancel":
         new_time = user_input.split("_")[1]
         new_time = int(new_time) if new_time.isnumeric() else 0
-        time_passed = world.set_time(game_state=game_state, new_time=new_time)
+        time_passed = state.set_time(game_state=game_state, new_time=new_time)
         character['hp'] += (time_passed // 4)
         character['hp'] = min(character['hp'], character['max_hp'])
         return True
@@ -158,8 +159,16 @@ def travel(game_state: dict[str: dict], direction: list[int, int]):
     print(f"You arrive in {localisation.get_text("location", terrain)}")
 
 
+def reflect(game_state: dict[str: dict]):
+    reflection_text = localisation.get_reflection_text(game_state=game_state)
+    localisation.display_divider()
+    print(reflection_text)
+    localisation.display_divider()
+    get_user_input(options=["continue"])
+
+
 def do_action(game_state: dict[str: dict], user_input: str) -> bool:
-    input_to_action = {"travel": start_travelling, "camp": start_camping}
+    input_to_action = {"travel": start_travelling, "camp": start_camping, "reflect": reflect}
     try:
         action = input_to_action[user_input]
     except KeyError:
@@ -170,7 +179,7 @@ def do_action(game_state: dict[str: dict], user_input: str) -> bool:
 
 def handle_input(game_state: dict[str: dict]):
     options = get_options(game_state)
-    user_input = player_input.get_user_input(options=options, extra_info=True)
+    user_input = player_input.get_user_input(options=options)
     return do_action(game_state=game_state, user_input=user_input)
 
 
@@ -180,12 +189,10 @@ def tile_event(game_state: dict[str: dict]):
 
 def tile_start(game_state: dict[str:dict], new_tile: bool = True):
     character = game_state["character"]
-    print(f"\n─────────────────────────────────────────────────")
+    localisation.display_divider()
     if new_tile:
         describe_game_state(game_state)
         describe_new_tile(game_state)
-        if character["items"]["map"]:
-            ui.display_map(game_state, character["items"]["map"] > 1)
 
 
 def run_tile(game_state: dict[str: dict]):
@@ -198,6 +205,8 @@ def run_tile(game_state: dict[str: dict]):
     if coordinates not in character["visited_rooms"]:
         events.start_event(game_state=game_state, tile_id=board[coordinates]["id"])
 
+    if character["items"]["map"]:
+        ui.display_map(game_state, character["items"]["map"] > 1)
     while True:
         if handle_input(game_state=game_state):
             break

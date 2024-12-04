@@ -28,13 +28,36 @@ def get_location_description(game_state: dict[str: dict]) -> str:
 
 def get_stats(game_state: dict[str: dict]):
     character = game_state["character"]
-    return f"Insight: +{character["insight"]}\nMight: +{character["might"]}\nCunning: +{character["cunning"]}"
+    return f"Insight: +{character["insight"]}\nMight: +{character["might"]}\nCunning: + {character["cunning"]}"
 
 
 def display_level_up_message(game_state: dict[str: dict]):
     character = game_state["character"]
     print(f"{get_text("info", "level_up", True)} {character["level"]}!")
     print(f"{character["xp"]}/{character["level"]*2} {get_text("info", "next_level")} {character["level"]+1}")
+
+
+def get_quest_hint(game_state: dict[str: dict]) -> str:
+    character = game_state["character"]
+    level = str(min(character["level"], 5))
+    hint = get_text("hint", level)
+    return hint
+
+
+def get_reflection_text(game_state: dict[str: dict]) -> str:
+    character = game_state["character"]
+    from project.ui import style_text
+    text = (f"{style_text(text=character["name"], emphasis=1)}"
+            f"\nLevel {character["level"]}, {character["xp"]}/{character["level"]*2} xp"
+            f"\n\nHP: {character["hp"]}/5"
+            f"\n\n{get_stats(game_state=game_state)}"
+            f"\n\nSupplies: {character["supplies"]}\nTrinkets: {character["trinkets"]}")
+    text += f"\n\n{get_quest_hint(game_state=game_state)}"
+    return text
+
+
+def display_divider():
+    print(f"\n─────────────────────────────────────────────────")
 
 
 def main():

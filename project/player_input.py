@@ -124,14 +124,12 @@ def get_movement():
             print(get_text("error", "invalid_input", True))
 
 
-def get_user_input(options: [str], option_prompt: str = "options", extra_info: bool = False,
+def get_user_input(options: [str], option_prompt: str = "options",
                    prompt_namespace: str = "prompt", option_namespace: str = "prompt"):
     while True:
         prompt = f"{get_text(prompt_namespace, option_prompt, True)}"
         for number, option in enumerate(options, 1):
             prompt += f"\n{number}. {get_text(option_namespace, option)}"
-            if extra_info:
-                prompt += get_text("prompt_info", option, True)
         user_input = input(prompt+f"\n")
         if user_input.lower() in options:
             return user_input

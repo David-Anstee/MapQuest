@@ -1,4 +1,26 @@
-from project import localisation
+from project import localisation, data, tile
+
+
+def make_game_state():
+    world = make_world()
+    board = make_board(5, 5)
+    character = make_character()
+
+    game_state = {"world": world, "board": board, "character": character}
+    return game_state
+
+
+def make_world():
+    return {"time": 0, "day": 1}
+
+
+def make_board(rows: int, columns: int) -> dict:
+    new_board = {}
+    map_data = data.get_map_data(["map_data"])
+    for row in range(rows):
+        for column in range(columns):
+            new_board[(row, column)] = tile.make_tile(new_board, (row, column), map_data)
+    return new_board
 
 
 def get_stat_selection(prompt: str, valid_stats: list[str]) -> str:

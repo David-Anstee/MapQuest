@@ -11,15 +11,6 @@ import tile
 from project import state
 
 
-def make_board(rows: int, columns: int) -> dict:
-    new_board = {}
-    map_data = data.get_map_data(["map_data"])
-    for row in range(rows):
-        for column in range(columns):
-            new_board[(row, column)] = tile.make_tile(new_board, (row, column), map_data)
-    return new_board
-
-
 def skill_check(game_state: dict, target: int, stat=None, drama=True) -> int:
     character = game_state["character"]
     modifier = 0 if (stat is None) else character[stat]
@@ -56,7 +47,7 @@ def game():
     just_fix_windows_console()
     input(localisation.get_text("intro", "0000"))
 
-    game_state = {"board": make_board(5, 6), "character": state.make_character(), "world": {"time": 0, "day": 1}}
+    game_state = state.make_game_state()
     should_quit = False
 
     while not should_quit:

@@ -83,7 +83,7 @@ def start_camping(game_state: dict[str: dict]):
     options.append("next_day")
     options.append("cancel")
 
-    user_input = player_input.get_user_input(game_state=game_state, options=options)
+    user_input = player_input.get_user_input(options=options)
     if user_input != "cancel":
         new_time = user_input.split("_")[1]
         new_time = int(new_time) if new_time.isnumeric() else 0
@@ -140,7 +140,7 @@ def travel(game_state: dict[str: dict], direction: list[int, int]):
             else:
                 options.append("continue_travel")
                 print(f"It may be dangerous to travel this late...")
-            user_input = get_user_input(game_state=game_state, options=options)
+            user_input = get_user_input(options=options)
             if user_input == "stop_to_camp":
                 start_camping(game_state=game_state)
             elif user_input == "continue_travel":
@@ -170,7 +170,7 @@ def do_action(game_state: dict[str: dict], user_input: str) -> bool:
 
 def handle_input(game_state: dict[str: dict]):
     options = get_options(game_state)
-    user_input = player_input.get_user_input(game_state=game_state, options=options, extra_info=True)
+    user_input = player_input.get_user_input(options=options, extra_info=True)
     return do_action(game_state=game_state, user_input=user_input)
 
 

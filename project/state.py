@@ -1,4 +1,4 @@
-from project import localisation, data, tile
+from project import localisation, data, tile, player_input
 
 
 def make_game_state():
@@ -53,8 +53,7 @@ def make_character() -> dict:
     name_input = input("What is your name?").strip()
     character["name"] = name_input
 
-    primary_stat = get_stat_selection(localisation.get_text("prompt", "first_stat", True),
-                                      stats)
+    primary_stat = player_input.get_user_input(options=stats, option_prompt="first_stat", option_namespace="stats")
     secondary_stat = get_stat_selection(localisation.get_text("prompt", "second_stat", True),
                                         stats)
 

@@ -60,7 +60,7 @@ def run_event_stage(game_state: dict[str: dict], event_stage: dict[str: ...]) ->
     option_data = event_stage["options"]
     options = list(option_data.keys())
 
-    user_input = player_input.get_user_input(game_state=game_state, options=options, option_prompt=description,
+    user_input = player_input.get_user_input(options=options, option_prompt=description,
                                              prompt_namespace="event_desc", option_namespace="event_option")
     choice = option_data[user_input]
 

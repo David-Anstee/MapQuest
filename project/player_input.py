@@ -124,7 +124,7 @@ def get_movement():
             print(get_text("error", "invalid_input", True))
 
 
-def get_user_input(game_state: dict[str, dict], options: [str], option_prompt: str = "options", extra_info: bool = False,
+def get_user_input(options: [str], option_prompt: str = "options", extra_info: bool = False,
                    prompt_namespace: str = "prompt", option_namespace: str = "prompt"):
     while True:
         prompt = f"{get_text(prompt_namespace, option_prompt, True)}"

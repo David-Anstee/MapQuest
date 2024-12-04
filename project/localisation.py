@@ -4,18 +4,21 @@ A01434810
 """
 import json
 from __init__ import LOCALISATION
+from project import data
 
 
 def get_text(namespace: str, loc_id: str, new_line: bool = False) -> str:
     try:
-        with open(LOCALISATION, 'r') as text_file:
-            localisation = json.load(text_file)
-            output = "\n" + localisation[namespace][loc_id] if new_line else localisation[namespace][loc_id]
-            return output
+        localisation = data.get_localisation()
     except FileNotFoundError:
         return "MISSING LOCALISATION FILE"
+
+    output = f"\n" if new_line else f""
+    try:
+        output += f"{localisation[namespace][loc_id]}"
     except KeyError:
         return f"LOCALISATION NOT FOUND: {namespace}, {loc_id}"
+    return output
 
 
 def generate_location_description(game_state: dict[str: dict]) -> str:

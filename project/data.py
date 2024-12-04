@@ -10,7 +10,11 @@ def get_event_data_file():
     return __init__.EVENT_DATA
 
 
-def get_map_data(identifiers: list[str]):
+def get_localisation_file():
+    return __init__.LOCALISATION
+
+
+def get_map_data(identifiers: list[str]) -> dict[str: ...]:
     output = None
     with open(get_map_data_file(), 'r') as text_file:
         data = json.load(text_file)
@@ -25,6 +29,12 @@ def get_event_data(tile_id: str) -> dict[str: ...]:
         event_json = json.load(event_data)
         event_sequence = event_json["tile_events"][tile_id]
     return event_sequence
+
+
+def get_localisation() -> dict[str: dict]:
+    with open(get_localisation_file(), 'r') as text_file:
+        localisation = json.load(text_file)
+    return localisation
 
 
 def main():

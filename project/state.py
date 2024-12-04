@@ -121,5 +121,5 @@ def set_time(game_state: dict[str: dict], new_time: int) -> int:
     return time_passed
 
 
-def should_quit():
-    return False
+def should_quit(game_state: dict[str, dict]):
+    return game_state["character"]["hp"] > 0

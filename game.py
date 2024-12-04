@@ -13,7 +13,7 @@ def game():
     input(localisation.get_text("intro", "0000"))
 
     game_state = state.make_game_state()
-    while not state.should_quit():
+    while not state.should_quit(game_state):
         tile.run_tile(game_state)
 
 

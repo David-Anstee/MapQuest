@@ -1,12 +1,10 @@
+from __init__ import EVENT_DATA
+from project import game, player_input
 import json
-import game
-import player_input
-
-EVENT_FILE = "event_data.json"
 
 
 def get_event_sequence(tile_id: str) -> dict[str: ...]:
-    with open(EVENT_FILE, 'r') as event_data:
+    with open(EVENT_DATA, 'r') as event_data:
         event_json = json.load(event_data)
         event_sequence = event_json["tile_events"][tile_id]
         return event_sequence

@@ -1,8 +1,9 @@
+import __init__
 import json
 
 
-def get_data_file() -> str:
-    return "game_data.json"
+def get_data_file():
+    return __init__.GAME_DATA
 
 
 def get_data(identifiers: list[str]):

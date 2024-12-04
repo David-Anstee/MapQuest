@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import patch
 
-from encounter import roll_for_encounter
+from project.encounter import roll_for_encounter
 
 
 class Test(TestCase):

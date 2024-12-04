@@ -6,9 +6,8 @@ import game
 import localisation
 import player_input
 import ui
-from player_input import get_movement, move_character, direction_from_input, move_is_valid, get_user_input
-from ui import describe_location, style_text
-import time
+from player_input import move_character, get_user_input
+from ui import describe_location
 
 
 def make_tile(board: dict, coordinates: tuple, map_data: dict) -> dict:
@@ -27,9 +26,9 @@ def describe_game_state(game_state):
     world = game_state["world"]
     coordinates = (character["x_coord"], character["y_coord"])
     time_description = ui.style_text(text=localisation.get_text(namespace="time", loc_id=(str(world["time"]))),
-                                      fore_colour=11, emphasis=5)
+                                     fore_colour=11, emphasis=5)
     terrain_description = ui.style_text(text=localisation.get_text(namespace="location",
-                                                                    loc_id=board[coordinates]["terrain"]), fore_colour=14)
+                                                                   loc_id=board[coordinates]["terrain"]), fore_colour=14)
     day_description = f"Day {ui.style_text(text=str(world["day"]), fore_colour=14)}"
     day_description = f"{ui.style_text(day_description, emphasis=1)}"
     day_description = f"{ui.style_text(day_description, emphasis=4)}"

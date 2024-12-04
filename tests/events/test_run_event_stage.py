@@ -1,6 +1,6 @@
 from unittest import TestCase
 from unittest.mock import patch
-from events import run_event_stage
+from project.events import run_event_stage
 
 
 class Test(TestCase):

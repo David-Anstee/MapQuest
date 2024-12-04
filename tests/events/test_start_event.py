@@ -1,8 +1,7 @@
 from unittest import TestCase
 from unittest.mock import patch
 
-import events
-from events import start_event
+from project import events
 
 
 class Test(TestCase):

@@ -3,13 +3,12 @@ David Anstee
 A01434810
 """
 import json
-
-LOCALISATION_FILE = "localisation.json"
+from __init__ import LOCALISATION
 
 
 def get_text(namespace: str, loc_id: str, new_line: bool = False) -> str:
     try:
-        with open(LOCALISATION_FILE, 'r') as text_file:
+        with open(LOCALISATION, 'r') as text_file:
             localisation = json.load(text_file)
             output = "\n" + localisation[namespace][loc_id] if new_line else localisation[namespace][loc_id]
             return output

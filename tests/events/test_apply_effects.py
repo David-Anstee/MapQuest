@@ -1,5 +1,5 @@
 from unittest import TestCase
-from events import apply_effects
+from project.events import apply_effects
 
 
 class Test(TestCase):

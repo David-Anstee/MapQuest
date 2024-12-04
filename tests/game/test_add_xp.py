@@ -1,7 +1,6 @@
-import io
 from unittest import TestCase
 from unittest.mock import patch
-from game import add_xp
+from project.game import add_xp
 
 
 class Test(TestCase):

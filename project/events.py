@@ -1,7 +1,4 @@
-from __init__ import EVENT_DATA
-from project import game, player_input
-import json
-
+from project import game, player_input, character
 from project.data import get_event_data
 
 
@@ -58,7 +55,7 @@ def start_event(game_state: dict[str: dict], tile_id: str):
         event_stage = run_event_stage(game_state=game_state, event_stage=event)
 
     if xp_reward:
-        game.add_xp(game_state=game_state, amount=xp_reward)
+        character.add_xp(game_state=game_state, amount=xp_reward)
 
 
 def main():

@@ -92,6 +92,22 @@ def increase_stat(game_state: dict[str: dict], stat: str):
             break
 
 
+def add_xp(game_state: dict[str: dict], amount: int):
+    character = game_state["character"]
+    current_xp = character["xp"]
+    new_xp = current_xp + amount
+    print(f"Gained {new_xp} xp!")
+
+    while new_xp >= character["level"] * 2:
+        new_xp %= (character["level"] * 2)
+        level_up_character(game_state=game_state)
+
+    character["xp"] = new_xp
+    print(f"Current level: {character["level"]}")
+    print(f"Current xp: {new_xp}")
+    print(f"xp needed for next level: {character["level"]*2}")
+
+
 def level_up_character(game_state: dict):
     character = game_state["character"]
     character["level"] += 1

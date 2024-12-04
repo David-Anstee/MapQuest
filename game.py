@@ -115,7 +115,8 @@ def level_up_character(game_state: dict):
     stats = ("insight", "might", "cunning")
     for stat in stats:
         increase_stat(game_state, stat)
-    
+    print(localisation.get_text("info", "leveled_up"))
+
 
 def skill_check(game_state: dict, target: int, stat=None, drama=True) -> int:
     character = game_state["character"]

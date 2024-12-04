@@ -65,8 +65,8 @@ def make_character() -> dict:
                     various values
     :return: the player character as a dictionary
     """
-    character = {"x_coord": 0, "y_coord": 0, "hp": 5, "level": 1, "visited_rooms": [],
-                 "insight": 0, "might": 0, "cunning": 0}
+    character = {"x_coord": 0, "y_coord": 0, "max_hp": 5, "hp": 5, "level": 1, "xp": 0, "visited_rooms": [],
+                 "insight": 0, "might": 0, "cunning": 0, "items": {"map": 1, "light": 0}}
 
     stats = ["insight", "might", "cunning"]
     primary_stat = get_stat_selection(localisation.get_text("prompt", "first_stat", True),

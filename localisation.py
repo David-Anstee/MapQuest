@@ -16,7 +16,7 @@ def get_text(namespace: str, loc_id: str, new_line: bool = False) -> str:
     except FileNotFoundError:
         return "MISSING LOCALISATION FILE"
     except KeyError:
-        return "LOCALISATION NOT FOUND"
+        return f"LOCALISATION NOT FOUND: {namespace}, {loc_id}"
 
 
 def generate_location_description(game_state):

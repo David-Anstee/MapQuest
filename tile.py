@@ -222,4 +222,4 @@ def arrive_at_tile(game_state):
 
 
 def journey_to_tile(game_state):
-    ("You travel through")
+    pass

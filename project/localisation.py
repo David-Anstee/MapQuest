@@ -31,6 +31,12 @@ def get_stats(game_state: dict[str: dict]):
     return f"Insight: {character["insight"]}\nMight: {character["might"]}\nCunning: {character["cunning"]}"
 
 
+def display_level_up_message(game_state: dict[str: dict]):
+    character = game_state["character"]
+    print(f"{get_text("info", "level_up", True)} {character["level"]}!")
+    print(f"{character["xp"]}/{character["level"]*2} {get_text("info", "next_level")} {character["level"]+1}")
+
+
 def main():
     example_text = get_text("intro", "0000", True)
     print(example_text)

@@ -98,7 +98,7 @@ def level_up_character(game_state: dict):
     stats = ("insight", "might", "cunning")
     for stat in stats:
         increase_stat(game_state, stat)
-    print(localisation.get_text("info", "leveled_up"))
+    localisation.display_level_up_message(game_state=game_state)
 
 
 def pass_time(game_state: dict[str: dict], time_passed: int, stop_at_midnight: bool = False):
@@ -122,4 +122,4 @@ def set_time(game_state: dict[str: dict], new_time: int) -> int:
 
 
 def should_quit(game_state: dict[str, dict]):
-    return game_state["character"]["hp"] > 0
+    return game_state["character"]["hp"] < 1

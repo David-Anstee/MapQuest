@@ -35,7 +35,8 @@
   },
 "info": {
   "stat_bonuses": "Your stat bonuses are: ",
-  "leveled_up": "You leveled up!"
+  "level_up": "You reached level",
+  "next_level": "XP to get to level"
 },
   "stats": {
     "insight": "Insight - your intelligence and ability to notice things",

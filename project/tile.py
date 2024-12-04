@@ -2,7 +2,7 @@ import random
 
 import encounter
 import events
-import game
+import state
 import localisation
 import player_input
 import ui
@@ -92,7 +92,7 @@ def start_camping(game_state: dict[str: dict]):
     if user_input != "cancel":
         new_time = user_input.split("_")[1]
         new_time = int(new_time) if new_time.isnumeric() else 0
-        time_passed = game.set_time(game_state=game_state, new_time=new_time)
+        time_passed = world.set_time(game_state=game_state, new_time=new_time)
         character['hp'] += (time_passed // 4)
         character['hp'] = min(character['hp'], character['max_hp'])
         return True
@@ -151,7 +151,7 @@ def travel(game_state: dict[str: dict], direction: list[int, int]):
             elif user_input == "continue_travel":
                 break
 
-        game.pass_time(game_state=game_state, time_passed=1)
+        state.pass_time(game_state=game_state, time_passed=1)
         time_remaining -= 1
 
         if encounter.roll_for_encounter():

@@ -1,5 +1,6 @@
 from project import localisation
 
+
 def get_stat_selection(prompt: str, valid_stats: list[str]) -> str:
     for number, stat in enumerate(valid_stats, 1):
         prompt += f"\n{number}. {localisation.get_text("stats", stat)}"
@@ -73,3 +74,23 @@ def level_up_character(game_state: dict):
     for stat in stats:
         increase_stat(game_state, stat)
     print(localisation.get_text("info", "leveled_up"))
+
+
+def pass_time(game_state: dict[str: dict], time_passed: int, stop_at_midnight: bool = False):
+    world = game_state["world"]
+    new_time = (world["time"] + time_passed)
+    new_time = min(new_time, 7) if stop_at_midnight else new_time % 8
+    set_time(game_state, new_time)
+
+
+def set_time(game_state: dict[str: dict], new_time: int) -> int:
+    if 7 < new_time < 0:
+        raise ValueError
+
+    world = game_state["world"]
+    old_time = world["time"]
+    world["time"] = new_time
+    time_passed = new_time - old_time if new_time > old_time else new_time + (14 - old_time)
+    if old_time > new_time or time_passed > 7:
+        world["day"] += 1
+    return time_passed

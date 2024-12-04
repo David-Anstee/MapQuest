@@ -8,7 +8,7 @@ from colorama import just_fix_windows_console
 import data
 import localisation
 import tile
-import character
+from project import state
 
 
 def make_board(rows: int, columns: int) -> dict:
@@ -49,26 +49,6 @@ def skill_check(game_state: dict, target: int, stat=None, drama=True) -> int:
     return total_roll >= target
 
 
-def pass_time(game_state: dict[str: dict], time_passed: int, stop_at_midnight: bool = False):
-    world = game_state["world"]
-    new_time = (world["time"] + time_passed)
-    new_time = min(new_time, 7) if stop_at_midnight else new_time % 8
-    set_time(game_state, new_time)
-
-
-def set_time(game_state: dict[str: dict], new_time: int) -> int:
-    if 7 < new_time < 0:
-        raise ValueError
-
-    world = game_state["world"]
-    old_time = world["time"]
-    world["time"] = new_time
-    time_passed = new_time - old_time if new_time > old_time else new_time + (14 - old_time)
-    if old_time > new_time or time_passed > 7:
-        world["day"] += 1
-    return time_passed
-
-
 def game():
     """
     Drive the game.
@@ -76,7 +56,7 @@ def game():
     just_fix_windows_console()
     input(localisation.get_text("intro", "0000"))
 
-    game_state = {"board": make_board(5, 6), "character": character.make_character(), "world": {"time": 0, "day": 1}}
+    game_state = {"board": make_board(5, 6), "character": state.make_character(), "world": {"time": 0, "day": 1}}
     should_quit = False
 
     while not should_quit:

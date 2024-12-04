@@ -15,7 +15,6 @@ def get_localisation_file():
 
 
 def get_map_data(identifiers: list[str]) -> dict[str: ...]:
-    output = None
     with open(get_map_data_file(), 'r') as text_file:
         data = json.load(text_file)
         for name in identifiers:

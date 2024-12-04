@@ -2,8 +2,6 @@
 David Anstee
 A01434810
 """
-import json
-from __init__ import LOCALISATION
 from project import data
 
 

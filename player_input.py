@@ -113,17 +113,22 @@ def get_user_input(game_state: dict):
     """
     Get and respond to input from the user.
 
-    :param game_state: a dictionary
-    :precondition: board is a dictionary
-    :precondition: character is a dictionary
-    :postcondition: handle the user's input
-    """
+
+def get_user_input(game_state: dict[str, dict], options: [str], option_prompt: str = "options", extra_info: bool = False,
+                   prompt_namespace: str = "prompt", option_namespace: str = "prompt"):
     while True:
-        user_input = input(get_text("prompt", "move", True))
-        if not is_directional(user_input):
-            print(get_text("error", "invalid_input"))
+        prompt = f"{get_text(prompt_namespace, option_prompt, True)}"
+        for number, option in enumerate(options, 1):
+            prompt += f"\n{number}. {localisation.get_text(option_namespace, option)}"
+            if extra_info:
+                prompt += localisation.get_text("prompt_info", option, True)
+        user_input = input(prompt+f"\n")
+        if user_input.lower() in options:
+            return user_input
+        elif user_input.isnumeric() and 0 < int(user_input) <= len(options):
+            return options[int(user_input)-1]
         else:
-            return direction_from_input(user_input)
+            print(get_text("error", "invalid_input", True))
 
 
 # def prompt_user()

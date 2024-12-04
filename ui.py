@@ -41,29 +41,27 @@ def style_text(text: str, fore_colour: int = None, back_colour: int = None, emph
 
     return f"{emphasis}{foreground_colour}{background_colour}{text}{COLOUR_RESET}"
 
-    >>> example_board = {(0, 0): "the side of a lake", (0, 1): "the side of a lake"}
-    >>> example_character = {"x_coord": 0, "y_coord": 0, "visited_rooms": [(0, 0)]}
-    >>> display_map(example_board, example_character) # doctest: +SKIP
-    """
+
+def display_map(game_state: dict[str, dict], big_map: bool = False):
     board = game_state["board"]
     character = game_state["character"]
 
     map_display = ""
-    max_row = max(key[0] for key in board.keys())
-    max_col = max(key[1] for key in board.keys())
 
-    for row in range(max_row+1):
-        map_row = "\n"
-        for column in range(max_col+1):
+    row_start = character["x_coord"] - 1 - big_map
+    row_stop = character["x_coord"] + 1 + big_map
+
+    column_start = character["y_coord"] - 1 - big_map
+    column_stop = character["y_coord"] + 1 + big_map
+
+    for row in range(row_start, row_stop+1):
+        map_row = f"\n"
+        for column in range(column_start, column_stop+1):
             coordinates = (row, column)
-            assert coordinates in board
-
             if coordinates == (character["x_coord"], character["y_coord"]):
-                map_row += "\033[1;35m☺"
-            elif True: # coordinates in character["visited_rooms"]:
+                map_row += "\033[1;35m*"
+            elif 0 <= coordinates[0] <= max(key[0] for key in board.keys()) and 0 <= coordinates[1] <= max(key[1] for key in board.keys()):
                 map_row += get_colour(board[coordinates]["terrain"]) + get_tile(board[coordinates]["terrain"])
-            else:
-                map_row += "?"
             map_row += "\033[0m "
         map_display += map_row
     print(map_display)

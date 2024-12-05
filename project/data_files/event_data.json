@@ -78,6 +78,44 @@
         "description": "AB_5_description",
         "options": {"AB_5_option_0": {"success": "-1"}}
       }
+    },
+    "ZA": {
+       "0": {
+        "description": "ZA_0_description",
+        "options": {"ZA_0_option_0": {"success": "1"}
+        }
+      },
+      "1": {
+        "description": "ZA_1_description",
+        "options": {"ZA_1_option_0": {"success": "2"}
+        }
+      },
+      "2": {
+        "description": "ZA_2_description",
+        "options": {"ZA_2_option_0": {"success": "3"}
+        }
+      },
+      "3": {
+        "description": "ZA_3_description",
+        "options": {"ZA_3_option_0": {"skill_check": ["insight", 16], "success": "4", "failure": "5"},
+                    "ZA_3_option_1": {"skill_check": ["might", 16],"success": "4", "failure": "5"},
+                    "ZA_3_option_2": {"skill_check": ["cunning", 16],"success": "4", "failure": "5"},
+                    "ZA_3_option_3": {"skill_check": ["trinkets", 10],"success": "4", "failure": "5"}
+                  }
+        },
+      "4": {
+        "description": "ZA_4_description",
+        "options": {"ZA_4_option_0": {"success": "6"}}
+      },
+      "5": {
+        "description": "ZA_5_description",
+        "effects": {"character": {"hp": -3}},
+        "options": {"ZA_5_option_0": {"success": "3"}}
+      },
+      "6": {
+        "description": "ZA_6_description",
+        "options": {"ZA_6_option_0": {"success": "-1"}}
+      }
     }
   }
 }

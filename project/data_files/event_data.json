@@ -255,6 +255,7 @@
       },
       "6": {
         "description": "ZA_6_description",
+        "effects": {"world": {"finished": 1}},
         "options": {"ZA_6_option_0": {"success": "-1"}}
       }
     }

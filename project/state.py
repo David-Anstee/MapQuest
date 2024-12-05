@@ -35,7 +35,7 @@ def make_world():
     """
     difficulty_options = ["easy", "normal"]
     difficulty = player_input.get_user_input(options=difficulty_options, option_prompt="difficulty")
-    return {"time": 0, "day": 1, "difficulty": difficulty}
+    return {"time": 0, "day": 1, "difficulty": difficulty, "finished": False}
 
 
 def make_tile(coordinates: tuple, map_data: dict) -> dict:
@@ -207,4 +207,4 @@ def should_quit(game_state: dict[str, dict]):
     :postcondition: determine if the game should quit
     :return: whether the game should quit as a bool
     """
-    return game_state["character"]["hp"] < 1
+    return game_state["character"]["hp"] < 1 or game_state["world"]["finished"]

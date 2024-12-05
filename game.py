@@ -17,7 +17,7 @@ def game():
         tile.play_tile(game_state)
 
     if game_state["character"]["hp"] > 0:
-        print("Thanks for playing")
+        print("Thanks for playing!")
     else:
         print("You died!")
 

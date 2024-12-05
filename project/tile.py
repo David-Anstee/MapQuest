@@ -1,6 +1,6 @@
 import random
 
-from project import encounter, events, state, localisation, player_input, ui
+from project import events, state, localisation, player_input, ui
 from project.player_input import move_character, get_user_input
 from project.ui import describe_location
 
@@ -164,10 +164,6 @@ def travel(game_state: dict[str: dict], direction: list[int, int]):
 
         state.pass_time(game_state=game_state, time_passed=1)
         time_remaining -= 1
-
-        if encounter.roll_for_encounter():
-            print(f"ENCOUNTER at {localisation.get_text("time", str(world["time"]))}")
-            input("enter")
 
     move_character(game_state=game_state, direction=direction)
     terrain = game_state["board"][end_coord]["terrain"]

@@ -9,30 +9,12 @@ def move_is_valid(game_state: dict, direction: list) -> bool:
     """
     Determine whether a move is valid.
 
-    :param board: The game board the move is happening on
-    :param character: The character making the move
-    :param direction: The direction the move is going
-    :precondition: board is a dictionary where coordinate
-                   are represented as tuples
-    :precondition: character is a dictionary containing
-                   the character's current coordinates
-    :precondition: direction is a list where the first
-                   element is an integer representing
-                   the x-axis and the second element is
-                   an integer representing the y-axis
+    :param game_state: the current game state
+    :param direction: the direction of the move
+    :precondition: game_state is a well-formed dictionary
+    :precondition: direction is a list of two integers
     :postcondition: check if the move is valid
     :return: whether the move is valid as a boolean
-
-    >>> example_board = {(0, 0): "a peaceful meadow", (0, 1): "a peaceful meadow"}
-    >>> example_character = {"x_coord": 0, "y_coord": 0}
-    >>> example_direction = [1, 0]
-    >>> move_is_valid(example_board, example_character, example_direction)
-    False
-    >>> example_board = {(0, 0): "a peaceful meadow", (0, 1): "a peaceful meadow"}
-    >>> example_character = {"x_coord": 0, "y_coord": 0}
-    >>> example_direction = [0, 1]
-    >>> move_is_valid(example_board, example_character, example_direction)
-    True
     """
     character = game_state["character"]
     board = game_state["board"]
@@ -82,7 +64,7 @@ def is_directional(user_input: str) -> bool:
     return user_input.lower() in ["n", "s", "e", "w"]
 
 
-def direction_from_input(user_input: str) -> list[int, int]:
+def direction_from_input(user_input: str) -> list[int]:
     """
     Get direction from the user's input.
 
@@ -92,10 +74,10 @@ def direction_from_input(user_input: str) -> list[int, int]:
     :postcondition: Get a direction
     :return: The direction as a list of two integers
 
-    >>> example_input = "E"
+    >>> example_input = "East"
     >>> direction_from_input(example_input)
     [0, 1]
-    >>> example_input = "n"
+    >>> example_input = "north"
     >>> direction_from_input(example_input)
     [-1, 0]
     """
@@ -109,6 +91,12 @@ def direction_from_input(user_input: str) -> list[int, int]:
 
 
 def get_movement():
+    """
+    Get the player's movement.
+
+    :postcondition: get the player's movement
+    :return: the movement as a string
+    """
     options = ["north", "south", "east", "west", "cancel"]
     while True:
         prompt = f"{get_text("prompt", "move", True)}"
@@ -125,6 +113,20 @@ def get_movement():
 
 def get_user_input(options: [str], option_prompt: str = "options",
                    prompt_namespace: str = "prompt", option_namespace: str = "prompt"):
+    """
+    Get input from the user.
+
+    :param options: the options to present to the user
+    :param option_prompt: the prompt to present to the user
+    :param prompt_namespace: the name space of the prompt
+    :param option_namespace: the name space of the options
+    :precondition: options is a non-empty list of strings
+    :precondition: option_prompt is a string corresponding to an entry in the localisation file
+    :precondition: prompt_namespace is a string corresponding to a namespace in the localisation file
+    :precondition: option_namespace is a string corresponding to a namespace in the localisation file
+    :postcondition: get the user's input
+    :return: the option selected by the user as a string
+    """
     while True:
         prompt = f"{get_text(prompt_namespace, option_prompt, True)}"
         for number, option in enumerate(options, 1):
@@ -136,19 +138,3 @@ def get_user_input(options: [str], option_prompt: str = "options",
             return options[int(user_input)-1]
         else:
             print(get_text("error", "invalid_input", True))
-
-
-# def prompt_user()
-
-
-def main():
-    """
-    Drive the program.
-    """
-    board = {(0, 0): "a peaceful meadow", (0, 1): "the side of a lake"}
-    character = {"x_coord": 0, "y_coord": 0, "visited_rooms": [(0, 0)]}
-    get_user_input(board, character)
-
-
-if __name__ == "__main__":
-    main()

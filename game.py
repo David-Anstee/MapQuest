@@ -14,7 +14,12 @@ def game():
 
     game_state = state.make_game_state()
     while not state.should_quit(game_state):
-        tile.run_tile(game_state)
+        tile.play_tile(game_state)
+
+    if game_state["character"]["hp"] > 0:
+        print("Thanks for playing")
+    else:
+        print("You died!")
 
 
 def main():

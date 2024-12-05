@@ -2,7 +2,7 @@
 David Anstee
 A01434810
 """
-from project.localisation import get_text
+from project import localisation
 COLOUR_RESET = "\033[0m"
 COLOUR_FORE = "\033[38;5;"
 COLOUR_BACK = "\033[48;5;"
@@ -11,20 +11,13 @@ TEXT_EMPHASIS = "\033["
 
 def get_colour(terrain: str) -> str:
     """
-    Get the colour of a map tile.
+    Get the colour of a terrain type.
 
-    :param tile_name: the game board the tile exists on
-    :precondition: board is a dictionary where coordinates
-                   are mapped to tile descriptions
-    :precondition: coordinates is a tuple containing
-                   two non-negative integers
-    :postcondition: get the colour of the tile
-    :return: the colour of the tile as a string containing an escape sequence
-
-    >>> example_board = {(0, 0): "the side of a lake"}
-    >>> colour = get_colour(example_board, (0, 0))
-    >>> colour == '\033[0;34m'
-    True
+    :param terrain: a terrain type
+    :precondition: terrain is a string
+    :precondition: terrain is a key in colours
+    :postcondition: get the colour of the terrain
+    :return: the colour as a string
     """
     colours = {"meadow": "\033[1;92m", "forest": "\033[38;5;22m", "mountain": "\033[1;90m",
                "swamp": "\033[38;5;65m"}
@@ -35,6 +28,20 @@ def get_colour(terrain: str) -> str:
 
 
 def style_text(text: str, fore_colour: int = None, back_colour: int = None, emphasis: int = None) -> str:
+    """
+    Add style to text.
+
+    :param text: the text to be styled
+    :param fore_colour: the desired foreground colour
+    :param back_colour: the desired background colour
+    :param emphasis: the desired emphasis
+    :precondition: text is a non-empty string
+    :precondition: fore_colour is an integer between 0 and 255 (inclusive)
+    :precondition: back_colour is an integer between 0 and 255 (inclusive)
+    :precondition: emphasis is an integer between 0 and 10 (inclusive)
+    :postcondition: style the text with foreground colour, background colour, and emphasis
+    :return: the styled text as an f-string
+    """
     foreground_colour = f"{COLOUR_FORE}{fore_colour}m" if fore_colour is not None else ""
     background_colour = f"{COLOUR_BACK}{back_colour}m" if back_colour is not None else ""
     emphasis = f"{TEXT_EMPHASIS}{emphasis}m" if emphasis is not None else ""
@@ -43,6 +50,15 @@ def style_text(text: str, fore_colour: int = None, back_colour: int = None, emph
 
 
 def display_map(game_state: dict[str, dict], map_size: int):
+    """
+    Display the map.
+
+    :param game_state: the current game_state
+    :param map_size: the size of the player's map
+    :precondition: game_state is a well-formed string
+    :precondition: map_size is a positive integer
+    :postcondition: display the map
+    """
     board = game_state["board"]
     character = game_state["character"]
 
@@ -67,31 +83,15 @@ def display_map(game_state: dict[str, dict], map_size: int):
     print(map_display)
 
 
-def describe_location(game_state: dict):
+def get_tile(terrain: str) -> str:
     """
-    Describe the player's current location.
+    Get a terrain type's symbol.
 
-    :param game_state: an empty dictionary
-    :precondition: board is a dictionary where coordinates
-                   are mapped to tile descriptions
-    :precondition: character is a dictionary containing the
-                   player's current coordinates
-    :postcondition: print a description of the player's current location
-    """
-    board = game_state["board"]
-    coordinates = (game_state["character"]["x_coord"], game_state["character"]["y_coord"])
-    tile_name = board[coordinates]
-    print("You travel through the", get_text("location", tile_name))
-
-
-def get_tile(tile_description: str) -> str:
-    """
-    Get a tile's symbol.
-
-    :param tile_description: the description of the tile
-    :precondition: tile_description is a string
-    :postcondition: get the tile's symbol
-    :return: The tile's symbol as a string
+    :param terrain: the terrain type
+    :precondition: terrain type is a string
+    :precondition: terrain type is a key in tile_icons
+    :postcondition: get the terrain's symbol
+    :return: The terrain's symbol as a string
 
     >>> get_tile("bad tile description")
     'x'
@@ -101,20 +101,6 @@ def get_tile(tile_description: str) -> str:
     tile_icons = {"meadow": ";", "forest": "♣", "swamp": "\"", "mountain": "▲", "caverns": "○", "end": "!", "pale": "?",
                   "valley": "U", "tundra": "⎵"}
     try:
-        return tile_icons[tile_description]
+        return tile_icons[terrain]
     except KeyError:
         return "x"
-
-
-def main():
-    """
-    Drive the program.
-    """
-    board = {(0, 0): "a peaceful meadow", (0, 1): "the side of a lake"}
-    character = {"x_coord": 0, "y_coord": 0, "visited_rooms": [(0, 0)]}
-    display_map(board, character)
-    describe_location(board, character)
-
-
-if __name__ == "__main__":
-    main()

@@ -79,6 +79,433 @@
         "options": {"AB_5_option_0": {"success": "-1"}}
       }
     },
+    "AC": {
+      "0": {
+        "description": "AC_0_description",
+        "options": {
+            "AC_0_option_0": {"skill_check": ["insight", 6], "success":"1", "failure": "2"},
+            "AC_0_option_1": {"success":"-1"}
+        }
+      },
+      "1": {
+        "description": "AC_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"AC_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "AC_2_description",
+        "options": {"AC_2_option_0": {"success":"-1"}}
+      }
+    },
+    "AD": {
+      "0": {
+        "description": "AD_0_description",
+        "options": {
+            "AD_0_option_0": {"skill_check": ["insight", 6], "success":"1", "failure": "2", "look in": ""},
+            "AD_0_option_1": {"skill_check": ["cunning", 8], "success":"3", "failure": "4", "ambush": ""}
+        }
+      },
+      "1": {
+        "description": "AD_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"AD_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "AD_2_description",
+        "options": {"AD_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "AD_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"AD_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "AD_4_description",
+        "options": {"AD_4_option_0": {"success":"-1"}}
+      }
+    },
+    "AF": {
+      "0": {
+        "description": "AF_0_description",
+        "options": {
+            "AF_0_option_0": {"skill_check": ["cunning", 4], "success":"1", "failure": "2", "look for entrance": ""},
+            "AF_0_option_1": {"skill_check": ["might", 6], "success":"3", "failure": "4", "kick in door": ""}
+        }
+      },
+      "1": {
+        "description": "AF_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"AF_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "AF_2_description",
+        "options": {"AF_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "AF_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"AF_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "AF_4_description",
+        "options": {"AF_4_option_0": {"success":"-1"}}
+      }
+    },
+    "BA": {
+      "0": {
+        "description": "BA_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["cunning", 7], "success":"1", "failure": "2", "sneak around": ""},
+            "BA_0_option_1": {"skill_check": ["insight", 6], "success":"3", "failure": "4", "look for someone": ""}
+        }
+      },
+      "1": {
+        "description": "BA_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BA_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BA_2_description",
+        "options": {"BA_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BA_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BA_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BA_4_description",
+        "options": {"BA_4_option_0": {"success":"-1"}}
+      }
+    },
+    "BE": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["insight", 7], "success":"1", "failure": "2", "examine the cobblestone": ""},
+            "BA_0_option_1": {"skill_check": ["might", 10], "success":"3", "failure": "4", "break off a chunk": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "CA": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["cunning", 7], "success":"1", "failure": "2", "rob": ""},
+            "BA_0_option_1": {"skill_check": ["might", 10], "success":"3", "failure": "4", "get to a house": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "CB": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["might", 10], "success":"1", "failure": "2", "press on": ""},
+            "BA_0_option_1": {"skill_check": ["cunning", 10], "success":"3", "failure": "4", "dexterity": ""},
+            "BA_0_option_2": {"skill_check": ["insight", 10], "success":"3", "failure": "4", "find path": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "CE": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["cunning", 10], "success":"1", "failure": "2", "try to grab it": ""},
+            "BA_0_option_1": {"skill_check": ["insight", 10], "success":"3", "failure": "4", "try to figure what it is": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "DB": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["might", 10], "success":"1", "failure": "2", "warm yourself": ""},
+            "BA_0_option_1": {"skill_check": ["insight", 10], "success":"3", "failure": "4", "try to figure what it is": ""},
+            "BA_0_option_2": { "success":"3",  "take the beads": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "DC": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["might", 10], "success":"1", "failure": "2", "climb higher": ""},
+            "BA_0_option_1": {"skill_check": ["insight", 10], "success":"3", "failure": "4", "tread carefully": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "DD": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["might", 10], "success":"1", "failure": "2", "approach it confidently": ""},
+            "BA_0_option_1": {"skill_check": ["cunning", 10], "success":"3", "failure": "4", "sneak towards it": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "DE": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["insight", 10], "success":"1", "failure": "2", "find its source": ""},
+            "BA_0_option_1": {"success":"3", "failure": "4", "ignore it": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "EA": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["insight", 10], "success":"1", "failure": "2", "follow them": ""},
+            "BA_0_option_1": {"success":"3", "failure": "4", "ignore it": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "FA": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": {"skill_check": ["insight", 10], "success":"1", "failure": "2", "look for safety": ""},
+            "BA_0_option_1": {"skill_check": ["might", 10], "success":"1", "failure": "2", "struggle against the water": ""},
+            "BA_0_option_2": {"skill_check": ["cunning", 10], "success":"1", "failure": "2", "clamber up a tree": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "FD": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": { "success":"1", "failure": "2", "investigate": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
     "ZA": {
        "0": {
         "description": "ZA_0_description",
@@ -115,6 +542,63 @@
       "6": {
         "description": "ZA_6_description",
         "options": {"ZA_6_option_0": {"success": "-1"}}
+      }
+    },
+    "ZB": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": { "success":"1", "failure": "2", "try to press on": ""},
+            "BA_0_option_1": { "success":"1", "failure": "2", "turn back": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
+      }
+    },
+    "ZC": {
+      "0": {
+        "description": "BE_0_description",
+        "options": {
+            "BA_0_option_0": { "success":"1", "failure": "2", "look down": ""}
+        }
+      },
+      "1": {
+        "description": "BE_1_description",
+        "xp": 2,
+        "effects": {"character": {"map": 1}},
+        "options": {"BE_1_option_0": {"success":"-1"}}
+      },
+      "2": {
+        "description": "BE_2_description",
+        "options": {"BE_2_option_0": {"success":"-1"}}
+      },
+      "3": {
+        "description": "BE_3_description",
+        "xp": 1,
+        "effects": {"character": {"supplies": 1}},
+        "options": {"BE_3_option_0": {"success":"-1"}}
+      },
+       "4": {
+        "description": "BE_4_description",
+        "options": {"BE_4_option_0": {"success":"-1"}}
       }
     }
   }

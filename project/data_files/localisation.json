@@ -133,6 +133,10 @@
     "AB_4_description": "You lunge with all your force, but land short of your target. By the time your back on your feet, you can only catch a glimpse of grass rustling in the distance.",
     "AB_5_description": "You catch a glimpse of light reflecting off whatever's disturbing the grass. After a moment, the rustling dissipates.",
 
+    "AC_0_description": "Perhaps you could get a sense of the are from this vantage point",
+    "AC_1_description": "After a few moments, you feel you've constructed a mental map of the area",
+    "AC_2_description": "You glance around for a while, but the terrain still seems featureless and indistinct.",
+
     "ZA_0_description": "A cathedral, half-ruined, towers over its surroundings.",
     "ZA_1_description": "You stand before the cathedral. The right half of its roof is caved in. Its doors are almost twice your height.",
     "ZA_2_description": "The cathedral doors creak against your weight. You step inside. Light streams in through hole in the roof, illuminating up-turned pews. As you walk between them, a strong gust of wind comes from overhead. Something heavy thumps behind you.",
@@ -160,6 +164,11 @@
     "AB_3_option_0": "How bizarre... (+1 trinket)",
     "AB_4_option_0": "Trudge on through the grass",
     "AB_5_option_0": "A strange place...",
+
+    "AC_0_option_0": "Try to get a sense of your surroundings",
+    "AC_0_option_1": "Just continue on your way",
+    "AC_1_option_0": "Keep it in the back of your mind",
+    "AC_2_option_0": "You'll just have to keep going",
 
     "ZA_0_option_0": "Walk towards it",
     "ZA_1_option_0": "Push the doors open",

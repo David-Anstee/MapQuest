@@ -14,5 +14,5 @@
 | ✔️         | a function from itertools                | player_input | 132      | enumerate      |
 | ✔️         | random module                            | state        | 54       |                |
 | ✔️         | function annotations                     | ui           | 11       |                |
-| ✔️         | doctest/unit tests (see pdf)             |              |          |                |
+| ✔️         | doctest/unit tests (see pdf)             | player_input | 77       |                |
 | ✔️         | f-strings, format(), or old formatting   | ui           | 44       |                |

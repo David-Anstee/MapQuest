@@ -87,7 +87,7 @@ def describe_game_state(game_state):
     time_description = ui.style_text(text=get_text(namespace="time", loc_id=(str(world["time"]))),
                                      fore_colour=11, emphasis=5)
     terrain_description = ui.style_text(text=get_text(namespace="location",
-                                                                   loc_id=board[coordinates]["terrain"]), fore_colour=14)
+                                        loc_id=board[coordinates]["terrain"]), fore_colour=14)
     day_description = f"Day {ui.style_text(text=str(world["day"]), fore_colour=14)}"
     day_description = f"{ui.style_text(day_description, emphasis=1)}"
     day_description = f"{ui.style_text(day_description, emphasis=4)}"

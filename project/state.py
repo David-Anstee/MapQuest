@@ -1,4 +1,4 @@
-from project import localisation, data, tile, player_input
+from project import localisation, data, player_input
 import random
 
 

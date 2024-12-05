@@ -2,7 +2,6 @@
 David Anstee
 A01434810
 """
-from project import localisation
 COLOUR_RESET = "\033[0m"
 COLOUR_FORE = "\033[38;5;"
 COLOUR_BACK = "\033[48;5;"
@@ -76,7 +75,8 @@ def display_map(game_state: dict[str, dict], map_size: int):
             coordinates = (row, column)
             if coordinates == (character["x_coord"], character["y_coord"]):
                 map_row += "\033[1;35m*"
-            elif 0 <= coordinates[0] <= max(key[0] for key in board.keys()) and 0 <= coordinates[1] <= max(key[1] for key in board.keys()):
+            elif (0 <= coordinates[0] <= max(key[0] for key in board.keys()) and
+                  max(key[1] for key in board.keys()) >= 0 <= coordinates[1]):
                 map_row += get_colour(board[coordinates]["terrain"]) + get_tile(board[coordinates]["terrain"])
             map_row += "\033[0m "
         map_display += map_row

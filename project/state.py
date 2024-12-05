@@ -135,7 +135,7 @@ def add_xp(game_state: dict[str: dict], amount: int):
     character = game_state["character"]
     current_xp = character["xp"]
     new_xp = current_xp + amount
-    print(f"Gained {new_xp} xp!")
+    print(f"Gained {amount} xp!")
 
     while new_xp >= character["level"] * 2:
         new_xp %= (character["level"] * 2)

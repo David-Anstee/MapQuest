@@ -67,6 +67,7 @@ def pass_day(game_state: dict[str: dict]):
     if character["supplies"] > 1:
         character["hp"] += 2
         character["supplies"] -= 1
+        state.add_xp(game_state=game_state, amount=1)
         print(localisation.get_consume_supplies_text(game_state=game_state))
     else:
         print(no_supplies_text(game_state=game_state))

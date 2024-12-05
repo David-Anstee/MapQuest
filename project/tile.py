@@ -66,7 +66,7 @@ def play_tile(game_state: dict[str: dict]):
         try:
             ui.display_map(game_state, character["map"])
         except KeyError:
-            print("No map")
+            print("")
 
     while not state.should_quit(game_state=game_state):
         if action.handle_input(game_state=game_state):

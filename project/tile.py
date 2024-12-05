@@ -65,8 +65,8 @@ def get_options(game_state):
 
 
 def get_terrain_travel_time(terrain: str) -> int:
-    travel_times = {"meadow": 1, "forest": 3, "swamp": 3, "tundra": 1, "valley": 2, "mountain": 4, "cavern": 3,
-                    "pale": 4, "end": 4}
+    travel_times = {"meadow": 1, "forest": 2, "swamp": 2, "tundra": 1, "valley": 2, "mountain": 3, "cavern": 2,
+                    "pale": 3, "end": 3}
     try:
         return travel_times[terrain]
     except KeyError:

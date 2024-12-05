@@ -42,17 +42,17 @@ def style_text(text: str, fore_colour: int = None, back_colour: int = None, emph
     return f"{emphasis}{foreground_colour}{background_colour}{text}{COLOUR_RESET}"
 
 
-def display_map(game_state: dict[str, dict], big_map: bool = False):
+def display_map(game_state: dict[str, dict], map_size: int):
     board = game_state["board"]
     character = game_state["character"]
 
     map_display = ""
 
-    row_start = character["x_coord"] - 1 - big_map
-    row_stop = character["x_coord"] + 1 + big_map
+    row_start = character["x_coord"] - map_size
+    row_stop = character["x_coord"] + map_size
 
-    column_start = character["y_coord"] - 1 - big_map
-    column_stop = character["y_coord"] + 1 + big_map
+    column_start = character["y_coord"] - map_size
+    column_stop = character["y_coord"] + map_size
 
     for row in range(row_start, row_stop+1):
         map_row = f"\n"

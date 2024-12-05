@@ -31,7 +31,7 @@ def describe_game_state(game_state):
     #time.sleep(1.5)
     print(f"It is {time_description} in {terrain_description}")
     #time.sleep(3)
-    print(f"You have {character["hp"]}/{character["max_hp"]} health).")
+    print(f"You have {character["hp"]}/{character["max_hp"]} health.")
     #time.sleep(3)
 
 
@@ -220,8 +220,8 @@ def run_tile(game_state: dict[str: dict]):
         events.start_event(game_state=game_state, tile_id=board[coordinates]["id"])
         character["visited_rooms"].append(coordinates)
 
-    if character["items"]["map"]:
-        ui.display_map(game_state, character["items"]["map"] > 1)
+    if character["map"]:
+        ui.display_map(game_state, character["map"])
     while True:
         if handle_input(game_state=game_state):
             break

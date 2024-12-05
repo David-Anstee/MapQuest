@@ -40,8 +40,7 @@ def make_character() -> dict:
     :return: the player character as a dictionary
     """
     character = {"x_coord": 0, "y_coord": 0, "max_hp": 5, "hp": 5, "level": 1, "xp": 0, "visited_rooms": [],
-                 "insight": 0, "might": 0, "cunning": 0, "items": {"map": 1, "light": 0, }, "supplies": 5, "trinkets": 0
-                 }
+                 "insight": 0, "might": 0, "cunning": 0, "map": 0, "light": 0, "supplies": 5, "trinkets": 0}
 
     stats = ["insight", "might", "cunning"]
     name_input = input("What is your name?\n").strip()

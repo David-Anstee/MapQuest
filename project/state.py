@@ -6,12 +6,19 @@ def make_game_state():
     board = make_board(5, 6)
     character = make_character()
 
+    if world["difficulty"] == "easy":
+        character["supplies"] += 5
+        character["max_hp"] += 2
+        character["hp"] += 2
+
     game_state = {"world": world, "board": board, "character": character}
     return game_state
 
 
 def make_world():
-    return {"time": 0, "day": 1}
+    difficulty_options = ["easy", "normal"]
+    difficulty = player_input.get_user_input(options=difficulty_options, option_prompt="difficulty")
+    return {"time": 0, "day": 1, "difficulty": difficulty}
 
 
 def make_board(rows: int, columns: int) -> dict:

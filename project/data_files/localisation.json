@@ -4,6 +4,7 @@
     "bad_move": "Cannot move in that direction!"
   },
   "prompt": {
+    "difficulty": "Select a difficult setting",
     "move": "Select a direction to travel: ",
     "first_stat": "Select your primary stat: ",
     "second_stat": "Select your secondary stat:",
@@ -26,7 +27,9 @@
     "time_6": "dusk",
     "time_7": "after sunset",
     "next_day": "tomorrow morning",
-    "cancel": "[cancel]"
+    "cancel": "[cancel]",
+    "easy": "easy",
+    "normal": "normal"
   },
   "hint": {
     "1": "You feel exploring the meadow will help you get your bearing",

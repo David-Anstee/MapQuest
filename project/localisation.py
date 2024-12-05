@@ -50,7 +50,7 @@ def get_reflection_text(game_state: dict[str: dict]) -> str:
     from project.ui import style_text
     text = (f"{style_text(text=character["name"], emphasis=1)}"
             f"\nLevel {character["level"]}, {character["xp"]}/{character["level"]*2} xp"
-            f"\n\nHP: {character["hp"]}/5"
+            f"\n\nHP: {character["hp"]}/{character["max_hp"]}"
             f"\n\n{get_stats(game_state=game_state)}"
             f"\n\nSupplies: {character["supplies"]}\nTrinkets: {character["trinkets"]}")
     text += f"\n\n{get_quest_hint(game_state=game_state)}"

@@ -31,7 +31,7 @@ def describe_game_state(game_state):
     #time.sleep(1.5)
     print(f"It is {time_description} in {terrain_description}")
     #time.sleep(3)
-    print(f"You are {localisation.get_text("hp", str(character["hp"]))} ({str(character["hp"])} health).")
+    print(f"You have {character["hp"]}/{character["max_hp"]} health).")
     #time.sleep(3)
 
 
@@ -95,15 +95,15 @@ def start_camping(game_state: dict[str: dict]):
                 character["hp"] += 2
                 character["supplies"] -= 1
                 print(localisation.get_text("info", "consume_supplies", True))
-                print(f"Restored 2 hp (new hp: {min(character["hp"], 5)})")
+                print(f"Restored 2 hp (new hp: {min(character["hp"], character["max_hp"])})")
                 print(f"Consumed 1 supplies (remaining: {min(character["supplies"], 5)})")
             else:
                 print(localisation.get_text("info", "no_supplies"))
                 character["health"] -= 1
-                print(f"Lost 1 health (remaining: {min(character["hp"])})")
+                print(f"Lost 1 health (remaining: {character["hp"]}/{character["max_hp"]}")
         else:
             character['hp'] += (time_passed // 4)
-            print(f"You restored 2 hp while resting (new hp: {min(character["hp"], 5)})")
+            print(f"You restored 2 hp while resting (new hp: {min(character["hp"], character["max_hp"])})")
         character['hp'] = min(character['hp'], character['max_hp'])
         player_input.get_user_input(["continue"])
         return True

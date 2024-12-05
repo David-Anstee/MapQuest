@@ -6,26 +6,27 @@ import random
 
 def skill_check(game_state: dict, target: int, stat=None, drama=True) -> int:
     character = game_state["character"]
-    modifier = 0 if (stat is None) else character[stat]
+    stat_modifier = 0 if (stat is None) else character[stat]
+    difficulty_modifier = 1 if (game_state["world"]["difficulty"] == "easy") else 0
     print("Rolling dice...")
     if drama:
         time.sleep(1)
-    first_roll = random.randint(1, 6)
+    first_roll = random.randint(1, 6) + difficulty_modifier
     print(first_roll)
 
     if drama:
         time.sleep(2)
-    second_roll = random.randint(1, 6)
+    second_roll = random.randint(1, 6) + difficulty_modifier
     print(second_roll)
     if drama:
         time.sleep(1.5)
     print(f"Rolled {first_roll} + {second_roll} = {first_roll+second_roll}.")
-    total_roll = first_roll + second_roll + modifier
+    total_roll = first_roll + second_roll + stat_modifier
 
-    if modifier != 0:
+    if stat_modifier != 0:
         if drama:
             time.sleep(1.5)
-        print(f"Modifier ({stat.title()}): {modifier}")
+        print(f"Modifier ({stat.title()}): {stat_modifier}")
     if drama:
         time.sleep(1.5)
     print(f"Total roll: {total_roll}")

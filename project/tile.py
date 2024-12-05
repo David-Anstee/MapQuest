@@ -63,7 +63,10 @@ def play_tile(game_state: dict[str: dict]):
         events.start_event(game_state=game_state, tile_id=board[coordinates]["id"])
 
     if character["map"]:
-        ui.display_map(game_state, character["map"])
+        try:
+            ui.display_map(game_state, character["map"])
+        except KeyError:
+            print("No map")
 
     while not state.should_quit(game_state=game_state):
         if action.handle_input(game_state=game_state):
